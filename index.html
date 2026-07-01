@@ -200,6 +200,13 @@ footer{border-top:1px solid var(--line);margin-top:50px;padding:26px 0 50px;colo
   .scale{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
   .scale .opt{min-width:0}
   .scale label{min-width:0;padding:8px 3px}
+  /* Ursache: <legend> sitzt per Browser-Default AUF der Fieldset-Rahmenlinie, nicht im
+     Karteninhalt — bei 390px wrappt der Fragetext auf 3-4 Zeilen und ragt komplett aus
+     der Karte (Jay-Screenshot 02.07.). Standard-Reset: float holt die Legend in den
+     normalen Fluss, die Karte wächst mit; clear schiebt die Skala darunter. */
+  fieldset.item{min-inline-size:auto}
+  fieldset.item legend{float:left;width:100%;padding:0;margin:0 0 12px}
+  fieldset.item legend + *{clear:both}
   html,body{overflow-x:hidden}
 }
 </style>
