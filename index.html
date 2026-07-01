@@ -414,14 +414,16 @@ footer{border-top:1px solid var(--line);margin-top:50px;padding:26px 0 50px;colo
     <p class="err" id="gate-err"></p>
     <label class="fld" for="gate-email">E-Mail-Adresse</label>
     <input type="email" id="gate-email" name="email" required autocomplete="email" placeholder="name@firma.de">
-    <label class="check"><input type="checkbox" id="gate-news" name="newsletter"><span>Schicken Sie mir den Vantum-Newsletter mit KI-Impulsen für Teams (jederzeit abbestellbar).</span></label>
+    <!-- Newsletter-Opt-in AUSGEBLENDET bis Double-Opt-in technisch steht (Single-Opt-in wäre abmahnträchtig, UWG §7).
+         Zum Reaktivieren: hidden-Attribut entfernen — JS (gate-news) und Worker-Feld bleiben funktionsfähig. -->
+    <label class="check" hidden><input type="checkbox" id="gate-news" name="newsletter"><span>Schicken Sie mir den Vantum-Newsletter mit KI-Impulsen für Teams (jederzeit abbestellbar).</span></label>
     <label class="check"><input type="checkbox" id="gate-tier3" name="tier3"><span>Ich interessiere mich für das begleitete Enablement-Programm (Tier&nbsp;3) — bitte melden Sie sich dazu bei mir.</span></label>
     <label class="check"><input type="checkbox" id="gate-consent" name="consent" required><span>Ich bin einverstanden, dass meine Angaben zur Erstellung der Auswertung und zur Kontaktaufnahme verarbeitet werden (<a href="datenschutz.html" target="_blank" rel="noopener">Datenschutz</a>).</span></label>
     <div class="actions">
       <button type="button" class="btn ghost" id="gate-cancel">Zurück</button>
       <button type="submit" class="btn" id="gate-submit">Auswertung zeigen</button>
     </div>
-    <p class="fine">Ihre Antworten werden zur Erstellung Ihrer Auswertung verarbeitet und nicht an Dritte weitergegeben. Den Newsletter erhalten Sie nur, wenn Sie es oben ankreuzen.</p>
+    <p class="fine">Ihre Antworten werden zur Erstellung Ihrer Auswertung verarbeitet und nicht an Dritte weitergegeben.</p>
   </form>
 </div>
 
