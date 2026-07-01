@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>AI-Readiness-Quick-Check · by Vantum</title>
+<meta name="description" content="Ein ehrlicher Selbsttest in 10–15 Minuten: Wie reif ist Ihr Team für den KI-Einsatz? Sofortige Auswertung über fünf Dimensionen, per Mail zum Nachlesen.">
+<style>
+/* ===== Basis-Token-Block (Hausstandard) ===== */
+:root{
+  --font-body:'Hanken Grotesk', system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display:'Cormorant Garamond', Georgia, serif;
+  --bg:#fcf6ea; --surface:#ffffff; --surface-2:#f5ecdb; --surface-inv:#1d4477;
+  --ink:#182b4b; --ink-soft:#56657f; --muted:#94886f;
+  --navy:#1d4477; --navy-deep:#16294a;
+  --accent:#00a19f; --accent-bright:#3ed8c3; --accent-dark:#005e65;
+  --ok:#2fa55f; --ok-soft:#e2f2e8; --ok-text:#1e6b3d;
+  --warn:#e8941f; --warn-soft:#faf3dc; --warn-text:#8a6d1f;
+  --danger:#e2603c; --danger-soft:#fbeae5; --danger-text:#b3422a;
+  --line:#ebe0cd; --line-strong:#dbcdb2;
+  --r-xs:4px; --r-sm:10px; --r-md:16px; --r-lg:22px; --r-pill:999px;
+  --shadow:0 1px 2px rgba(24,43,75,.05), 0 10px 26px -16px rgba(24,43,75,.18);
+  --shadow-lift:0 2px 6px rgba(24,43,75,.07), 0 20px 40px -18px rgba(24,43,75,.22);
+  --maxw-narrow:760px; --maxw:980px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);
+  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.15;color:var(--navy-deep);margin:0 0 .4em}
+h1{font-size:2.5rem}
+h2{font-size:1.7rem;margin-top:0}
+h3{font-size:1.25rem}
+p{margin:0 0 .8em}
+a{color:var(--accent-dark)}
+small{color:var(--muted)}
+
+/* ===== Header / Masthead ===== */
+.demo-ribbon{background:var(--navy-deep);color:#fff;text-align:center;font-size:.78rem;
+  letter-spacing:.04em;padding:7px 14px;font-weight:600}
+.demo-ribbon strong{color:var(--accent-bright)}
+header.mast{background:linear-gradient(160deg,#fcf6ea 0%,#f5ecdb 100%);
+  border-bottom:1px solid var(--line);padding:46px 0 38px}
+.brand-chip{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;color:var(--accent-dark);
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-pill);padding:5px 14px;margin-bottom:18px}
+.lead{font-size:1.12rem;color:var(--ink-soft);max-width:62ch}
+
+/* ===== Cards / Callouts ===== */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:22px 24px;box-shadow:var(--shadow);margin:18px 0}
+.card.accent-top{border-top:4px solid var(--accent)}
+.card.inv{background:var(--navy);color:#fff;border:none}
+.card.inv h2,.card.inv h3{color:#fff}
+.card.inv p{color:#e7eef7}
+.callout{border-left:4px solid var(--accent);background:var(--surface-2);
+  padding:12px 16px;border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:.95rem;line-height:1.5;margin:14px 0}
+.callout.warn{border-left-color:var(--warn);background:var(--warn-soft)}
+.callout.ok{border-left-color:var(--ok);background:var(--ok-soft)}
+
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:700;
+  padding:3px 11px;border-radius:var(--r-pill);text-transform:uppercase;letter-spacing:.04em}
+.badge.ok{background:var(--ok-soft);color:var(--ok-text)}
+.badge.warn{background:var(--warn-soft);color:var(--warn-text)}
+.badge.danger{background:var(--danger-soft);color:var(--danger-text)}
+
+/* ===== Meta-Grid (Zweck/Dauer/Grenze) ===== */
+.meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:22px 0}
+.meta-grid .card{margin:0}
+.meta-grid h3{font-family:var(--font-body);font-size:.78rem;text-transform:uppercase;
+  letter-spacing:.05em;color:var(--muted);margin:0 0 6px}
+.meta-grid p{font-size:.95rem;margin:0;color:var(--ink-soft)}
+
+/* ===== Skalen-Legende ===== */
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:14px 0 0}
+.legend .lg{background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);padding:9px 11px;font-size:.82rem}
+.legend .lg b{display:block;color:var(--navy);font-size:1.05rem}
+
+/* ===== Fragebogen ===== */
+section.dim{margin:34px 0}
+.dim-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--line-strong);padding-bottom:8px;margin-bottom:6px}
+.dim-head .num{font-family:var(--font-display);font-size:2.1rem;color:var(--accent);line-height:1}
+.dim-head .frage{font-style:italic;color:var(--ink-soft);font-size:.98rem;width:100%;margin-top:2px}
+fieldset.item{border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface);
+  padding:16px 18px 12px;margin:14px 0;box-shadow:var(--shadow)}
+fieldset.item legend{font-weight:500;font-size:1rem;padding:0 6px;color:var(--ink)}
+fieldset.item .rk{display:inline-block;font-size:.64rem;font-weight:700;letter-spacing:.05em;
+  background:var(--surface-2);color:var(--muted);border-radius:var(--r-xs);padding:2px 6px;margin-left:6px;vertical-align:middle}
+.scale{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.scale label{flex:1 1 0;min-width:62px;text-align:center;border:1px solid var(--line);
+  border-radius:var(--r-sm);padding:8px 4px;cursor:pointer;font-size:.8rem;color:var(--ink-soft);
+  background:#fff;transition:.12s;user-select:none}
+.scale label:hover{border-color:var(--accent);background:var(--surface-2)}
+.scale label .v{display:block;font-weight:800;font-size:1.15rem;color:var(--navy)}
+.scale input{position:absolute;opacity:0;width:0;height:0}
+.scale input:checked + label{background:var(--navy);border-color:var(--navy);color:#fff}
+.scale input:checked + label .v{color:#fff}
+.scale input:focus-visible + label{outline:2px solid var(--accent);outline-offset:2px}
+.scale .opt{position:relative;flex:1 1 0;display:flex;min-width:62px}
+.scale .opt label{flex:1}
+
+/* ===== Sticky Fortschritt ===== */
+.progress-bar{position:sticky;top:0;z-index:20;background:rgba(252,246,234,.94);
+  backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:9px 0}
+.progress-bar .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.track{flex:1;height:8px;background:var(--surface-2);border-radius:var(--r-pill);overflow:hidden;min-width:120px}
+.track > i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.progress-bar b{font-size:.86rem;color:var(--ink-soft);font-weight:700}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent-dark);color:#fff;
+  border:none;border-radius:var(--r-pill);padding:11px 22px;font-size:.95rem;font-weight:700;
+  cursor:pointer;font-family:var(--font-body);text-decoration:none;box-shadow:var(--shadow)}
+.btn:hover{background:var(--navy)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
+/* ===== Report ===== */
+#report{scroll-margin-top:70px}
+.gesamt{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.ampel-dot{width:64px;height:64px;border-radius:50%;flex:0 0 auto;border:4px solid #fff;box-shadow:var(--shadow)}
+.ampel-dot.rot{background:var(--danger)} .ampel-dot.gelb{background:var(--warn)} .ampel-dot.gruen{background:var(--ok)}
+.heat{display:grid;gap:10px;margin:16px 0}
+.heat .row{display:grid;grid-template-columns:30px 1fr auto;align-items:center;gap:12px;
+  background:#fff;border:1px solid var(--line);border-left-width:5px;border-radius:var(--r-sm);padding:11px 14px}
+.heat .row.rot{border-left-color:var(--danger)} .heat .row.gelb{border-left-color:var(--warn)} .heat .row.gruen{border-left-color:var(--ok)}
+.heat .dot{width:18px;height:18px;border-radius:50%}
+.heat .dot.rot{background:var(--danger)} .heat .dot.gelb{background:var(--warn)} .heat .dot.gruen{background:var(--ok)}
+.heat .nm{font-weight:700;color:var(--navy-deep)}
+.heat .sc{font-variant-numeric:tabular-nums;font-weight:800;font-size:1.15rem;color:var(--ink)}
+.heat .stufe{display:block;font-size:.78rem;font-weight:600;color:var(--muted)}
+.hebel-card{border-left:4px solid var(--danger);background:var(--danger-soft);padding:12px 16px;border-radius:0 var(--r-sm) var(--r-sm) 0;margin:10px 0}
+.hebel-card h4{margin:0 0 4px;color:var(--danger-text);font-family:var(--font-body);font-size:1rem}
+.roadmap{counter-reset:rm;list-style:none;padding:0;margin:8px 0}
+.roadmap li{counter-increment:rm;position:relative;padding:0 0 14px 44px;font-size:.97rem}
+.roadmap li::before{content:counter(rm);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;
+  background:var(--navy);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.js-only{display:none}
+.no-js-note{display:block}
+
+footer{border-top:1px solid var(--line);margin-top:50px;padding:26px 0 50px;color:var(--muted);font-size:.82rem}
+
+@media print{
+  body{background:#fff}
+  .progress-bar,.no-print{display:none}
+  .card,.callout,fieldset.item,.heat .row{break-inside:avoid;box-shadow:none}
+}
+
+/* ===== Email-Gate (Overlay) ===== */
+.gate-overlay{position:fixed;inset:0;z-index:100;background:rgba(22,41,74,.55);
+  backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:20px}
+.gate-overlay.open{display:flex}
+.gate{position:relative;background:var(--surface);border-radius:var(--r-lg);max-width:460px;width:100%;
+  padding:26px 26px 22px;box-shadow:var(--shadow-lift);max-height:92vh;overflow-y:auto}
+.gate h3{margin:0 0 6px}
+.gate .sub{color:var(--ink-soft);font-size:.95rem;margin:0 0 16px}
+.gate label.fld{display:block;font-size:.82rem;font-weight:700;color:var(--navy);margin:0 0 5px}
+.gate input[type=email]{width:100%;border:1.5px solid var(--line-strong);border-radius:var(--r-sm);
+  padding:11px 13px;font-size:1rem;font-family:var(--font-body);color:var(--ink);margin-bottom:14px}
+.gate input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.gate .check{display:flex;gap:10px;align-items:flex-start;margin:0 0 12px;font-size:.9rem;color:var(--ink-soft);cursor:pointer}
+.gate .check input{margin-top:3px;flex:0 0 auto;width:17px;height:17px;accent-color:var(--accent-dark);cursor:pointer}
+.gate .actions{display:flex;gap:10px;margin-top:6px}
+.gate .actions .btn{flex:1;justify-content:center}
+.gate .err{color:var(--danger-text);background:var(--danger-soft);border-radius:var(--r-sm);
+  padding:8px 11px;font-size:.84rem;margin:0 0 12px;display:none}
+.gate .err.show{display:block}
+.gate .fine{font-size:.76rem;color:var(--muted);margin:14px 0 0;line-height:1.45}
+#report-live[hidden]{display:none}
+
+/* ===== Vertiefen-Vorschau (Hover-Teaser) ===== */
+.vt-dims{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.vt-dims button{border:1px solid var(--line-strong);background:#fff;border-radius:var(--r-pill);
+  padding:7px 14px;font:inherit;font-size:.86rem;color:var(--ink);cursor:pointer;
+  display:inline-flex;align-items:center;gap:7px;transition:.12s}
+.vt-dims button:hover,.vt-dims button.active{border-color:var(--accent);background:var(--surface-2)}
+.vt-dims button .d{width:11px;height:11px;border-radius:50%}
+.vt-dims .rot{background:var(--danger)} .vt-dims .gelb{background:var(--warn)} .vt-dims .gruen{background:var(--ok)}
+.vt-preview{position:relative;border:1px solid var(--line-strong);border-radius:var(--r-md);
+  background:linear-gradient(#fff,#fbf7ef);padding:20px 22px;margin:12px 0;overflow:hidden;min-height:210px}
+.vt-preview .vt-sticker{position:absolute;top:18px;right:-46px;transform:rotate(12deg);
+  background:var(--danger);color:#fff;font-weight:800;font-size:.72rem;letter-spacing:.08em;
+  padding:6px 56px;box-shadow:var(--shadow);text-transform:uppercase}
+.vt-preview h4{font-family:var(--font-display);font-size:1.2rem;color:var(--navy-deep);margin:0 0 14px}
+.vt-bar{display:grid;grid-template-columns:160px 1fr 40px;align-items:center;gap:10px;margin:7px 0;font-size:.86rem}
+.vt-bar .lbl{color:var(--ink-soft)}
+.vt-bar .track{height:9px;background:var(--surface-2);border-radius:var(--r-pill);overflow:hidden}
+.vt-bar .track > i{display:block;height:100%;border-radius:var(--r-pill)}
+.vt-bar .val{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;color:var(--muted)}
+.vt-rec{background:var(--surface-2);border-left:4px solid var(--accent);border-radius:0 var(--r-sm) var(--r-sm) 0;
+  padding:10px 14px;margin-top:14px;font-size:.9rem;color:var(--ink-soft)}
+.vt-note{background:var(--warn-soft);border-radius:var(--r-sm);padding:10px 14px;font-size:.86rem;color:var(--warn-text);margin:14px 0 0}
+@media(max-width:560px){.vt-bar{grid-template-columns:108px 1fr 36px}.vt-preview .vt-sticker{right:-50px;padding:6px 60px}}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <span class="brand-chip">by Vantum</span>
+    <h1>AI-Readiness-Quick-Check</h1>
+    <p class="lead">Ein ehrlicher Selbsttest in 10 bis 15 Minuten: Wo steht Ihr Team wirklich, wenn es um den Einsatz von KI geht — und welche Grundlage blockiert gerade den nächsten Schritt?</p>
+  </div>
+</header>
+
+<!-- Sticky-Fortschritt: nur mit JS sinnvoll -->
+<div class="progress-bar js-only" id="progress">
+  <div class="wrap">
+    <b id="progress-text">0 / 30 beantwortet</b>
+    <span class="track"><i id="progress-fill"></i></span>
+    <button class="btn" id="eval-btn" type="button" disabled>Auswertung anzeigen</button>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- ===== INTRO ===== -->
+  <section class="card accent-top" id="intro">
+    <h2>Worum es geht</h2>
+    <p>Die Frage „Sind wir reif für KI?" ist diffus. Dieser Quick-Check übersetzt sie in eine sortierte Sicht: über fünf Dimensionen hinweg zeigt er, welche Grundlage trägt und welche den nächsten Schritt aufhält. Am Ende erhalten Sie eine Gesamt-Einordnung, eine Heatmap je Dimension, Ihre Hebel und einen Roadmap-Teaser — sofort, ohne Wartezeit.</p>
+    <div class="meta-grid">
+      <div class="card"><h3>Zweck</h3><p>Standortbestimmung, kein Zeugnis. Eine erste, ehrliche Sicht darauf, wo der nächste sinnvolle Schritt liegt.</p></div>
+      <div class="card"><h3>Dauer</h3><p>Etwa 10–15 Minuten. 30 Aussagen, jeweils auf einer Skala von 1 bis 5.</p></div>
+      <div class="card"><h3>Für wen</h3><p>Eine Führungskraft oder ein Team-Verantwortlicher, der für das eigene Team antwortet.</p></div>
+    </div>
+    <div class="callout warn">
+      <strong>Was dieser Test bewusst nicht kann — und das ist Absicht.</strong> Er misst, wie Sie Ihr Team <em>selbst</em> sehen, nicht wie es objektiv ist. Die Differenz zwischen gesagter und gelebter Reife, das <em>Warum</em> hinter den Lücken und was eine Veränderung in Ihrem Alltag wirklich kostet — das deckt erst das begleitete Gespräch auf. Der Quick-Check ist die ehrliche Vorstufe, nicht der Ersatz. Mehr dazu am Ende.
+    </div>
+  </section>
+
+  <!-- ===== SKALEN-LEGENDE ===== -->
+  <section class="card" id="skala">
+    <h3>So antworten Sie</h3>
+    <p>Jede Aussage bewerten Sie auf einer Skala von 1 (trifft überhaupt nicht zu) bis 5 (trifft voll zu). Wenn Sie den eigenen Stand nicht einschätzen können, ist das die 1 — fehlendes Wissen über sich selbst ist selbst ein Reifesignal.</p>
+    <div class="legend">
+      <div class="lg"><b>1</b>Trifft überhaupt nicht zu / weiß ich nicht</div>
+      <div class="lg"><b>2</b>Trifft eher nicht zu</div>
+      <div class="lg"><b>3</b>Teils, teils</div>
+      <div class="lg"><b>4</b>Trifft eher zu</div>
+      <div class="lg"><b>5</b>Trifft voll zu / etabliert</div>
+    </div>
+    <p style="margin-top:12px"><small>Mit <span class="rk" style="font-size:.64rem">umgepolt</span> markierte Aussagen sind bewusst gegenläufig formuliert: dort bedeutet hohe Zustimmung niedrige Reife. Sie werden in der Auswertung automatisch umgerechnet (<code>6 − Wert</code>) — Sie müssen nichts umdenken, einfach ehrlich antworten.</small></p>
+  </section>
+
+  <form id="check">
+
+  <!-- ===== DIMENSION 1 ===== -->
+  <section class="dim" data-dim="d1" data-name="Foundation">
+    <div class="dim-head"><span class="num">1</span><h2>Foundation</h2>
+      <span class="frage">Frage dahinter: Gibt es überhaupt einen Boden, auf dem KI-Einsatz stehen kann? (Technische & prozessuale Grundvoraussetzungen)</span></div>
+
+    <fieldset class="item" data-rev="0"><legend>In meinem Team gibt es eine sichere, freigegebene Umgebung, in der wir KI-Werkzeuge nutzen dürfen, ohne jedes Mal eine Einzelfreigabe einzuholen.</legend><div class="scale" data-q="d1-1"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Unsere wichtigsten wiederkehrenden Arbeitsabläufe sind so weit dokumentiert, dass eine neue Kollegin sie ohne Zuruf nachvollziehen könnte.</legend><div class="scale" data-q="d1-2"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Wir haben mindestens einen Arbeitsablauf, in dem KI heute schon regelmäßig und nicht nur sporadisch im Einsatz ist.</legend><div class="scale" data-q="d1-3"></div></fieldset>
+    <fieldset class="item" data-rev="1"><legend>KI-Einsatz passiert bei uns bisher eher zufällig, wenn jemand privat etwas ausprobiert, nicht systematisch.<span class="rk">umgepolt</span></legend><div class="scale" data-q="d1-4"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Die Werkzeuge, die wir bräuchten, sind technisch erreichbar (Zugang, Lizenz, Budget sind geklärt).</legend><div class="scale" data-q="d1-5"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Wir wüssten, an wen wir uns wenden, wenn ein KI-Werkzeug eingerichtet oder freigeschaltet werden müsste.</legend><div class="scale" data-q="d1-6"></div></fieldset>
+  </section>
+
+  <!-- ===== DIMENSION 2 ===== -->
+  <section class="dim" data-dim="d2" data-name="Daten">
+    <div class="dim-head"><span class="num">2</span><h2>Daten</h2>
+      <span class="frage">Frage dahinter: Findet KI bei uns überhaupt verlässliches Material vor? (Verfügbarkeit, Qualität, Governance, Zugangswege)</span></div>
+
+    <fieldset class="item" data-rev="0"><legend>Die Daten, die wir für unsere Arbeit brauchen, sind auffindbar und liegen nicht verstreut in Köpfen, E-Mail-Postfächern und einzelnen Laufwerken.</legend><div class="scale" data-q="d2-1"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Wir könnten benennen, wie gut oder schlecht die Qualität unserer wichtigsten Daten ist (Aktualität, Vollständigkeit, Dubletten).</legend><div class="scale" data-q="d2-2"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Es ist klar geregelt, wer auf welche Daten zugreifen darf und wer dafür verantwortlich ist.</legend><div class="scale" data-q="d2-3"></div></fieldset>
+    <fieldset class="item" data-rev="1"><legend>Wenn ich eine konkrete Information bräuchte, müsste ich erst mehrere Leute fragen, bis ich sie zusammenhabe.<span class="rk">umgepolt</span></legend><div class="scale" data-q="d2-4"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Unsere Daten liegen überwiegend digital und maschinenlesbar vor, nicht in Papier, Screenshots oder PDFs ohne Struktur.</legend><div class="scale" data-q="d2-5"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Wir wissen, welche unserer Daten besonders schützenswert sind und behandeln sie entsprechend.</legend><div class="scale" data-q="d2-6"></div></fieldset>
+  </section>
+
+  <!-- ===== DIMENSION 3 ===== -->
+  <section class="dim" data-dim="d3" data-name="Menschen">
+    <div class="dim-head"><span class="num">3</span><h2>Menschen</h2>
+      <span class="frage">Frage dahinter: Können und wollen die Menschen, und trauen sie sich es zu? (Skills, Stance, Selbstwirksamkeit)</span></div>
+
+    <fieldset class="item" data-rev="0"><legend>Die meisten in meinem Team könnten eine konkrete Aufgabe nennen, bei der KI ihnen die eigene Arbeit schon erleichtert.</legend><div class="scale" data-q="d3-1"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Bei uns ist die Haltung zu KI weder pauschale Abwehr noch pauschaler Hype, sondern ein nüchternes „kommt darauf an, wofür".</legend><div class="scale" data-q="d3-2"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Es gibt bei uns Raum und Zeit, Neues auszuprobieren, ohne dass ein Fehlversuch sanktioniert wird.</legend><div class="scale" data-q="d3-3"></div></fieldset>
+    <fieldset class="item" data-rev="1"><legend>In meinem Team sorgen sich Leute eher, durch KI ersetzt zu werden, als dass sie sich davon entlastet fühlen.<span class="rk">umgepolt</span></legend><div class="scale" data-q="d3-4"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Ich selbst fühle mich sicher genug, um zu beurteilen, wann ein KI-Ergebnis brauchbar ist und wann nicht.</legend><div class="scale" data-q="d3-5"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Wir reden offen darüber, was KI bei uns verändert, statt dass jeder still für sich seine Schlüsse zieht.</legend><div class="scale" data-q="d3-6"></div></fieldset>
+  </section>
+
+  <!-- ===== DIMENSION 4 ===== -->
+  <section class="dim" data-dim="d4" data-name="Governance">
+    <div class="dim-head"><span class="num">4</span><h2>Governance</h2>
+      <span class="frage">Frage dahinter: Gibt es Leitplanken, oder fahren wir ohne? (Regeln, Verantwortung, ethische Leitplanken)</span></div>
+
+    <fieldset class="item" data-rev="0"><legend>Bei uns ist klar, was im Umgang mit KI erlaubt ist und was nicht (welche Daten rein dürfen, welche nicht).</legend><div class="scale" data-q="d4-1"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Es gibt eine benannte Person oder Rolle, die für den verantwortungsvollen KI-Einsatz zuständig ist.</legend><div class="scale" data-q="d4-2"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Wir haben uns mit den Transparenz- und Kennzeichnungspflichten des EU AI Act befasst, die ab August 2026 greifen.</legend><div class="scale" data-q="d4-3"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Wenn jemand bei uns KI nutzt, achtet er von sich aus auf Datenschutz und gibt keine sensiblen Inhalte unbedacht ein.</legend><div class="scale" data-q="d4-4"></div></fieldset>
+    <fieldset class="item" data-rev="1"><legend>Bei uns nutzt jeder KI nach eigenem Gutdünken, gemeinsame Regeln gibt es dafür bisher nicht.<span class="rk">umgepolt</span></legend><div class="scale" data-q="d4-5"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Es ist klar, an wen ein Problem oder ein Zweifelsfall beim KI-Einsatz eskaliert wird.</legend><div class="scale" data-q="d4-6"></div></fieldset>
+  </section>
+
+  <!-- ===== DIMENSION 5 ===== -->
+  <section class="dim" data-dim="d5" data-name="Wertschöpfung &amp; Use-Cases">
+    <div class="dim-head"><span class="num">5</span><h2>Wertschöpfung &amp; Use-Cases</h2>
+      <span class="frage">Frage dahinter: Wissen wir, wo KI wirklich Wert schafft und wo der Mensch unersetzlich bleibt? (Verdichtete operative Facetten)</span></div>
+
+    <fieldset class="item" data-rev="0"><legend>Wir könnten zwei oder drei konkrete Arbeitsabläufe benennen, bei denen sich KI-Einsatz spürbar lohnen würde.</legend><div class="scale" data-q="d5-1"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Wir unterscheiden bewusst zwischen Aufgaben, bei denen KI uns unterstützen soll, und solchen, die in Menschenhand bleiben müssen (Urteil, Beziehung, Verantwortung).</legend><div class="scale" data-q="d5-2"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Bei den Abläufen, die wir automatisieren würden, ist das gewünschte Ergebnis klar genug beschreibbar, dass man Erfolg erkennen würde.</legend><div class="scale" data-q="d5-3"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Wir prüfen KI-Ergebnisse, bevor wir sie weiterverwenden, statt sie ungeprüft zu übernehmen.</legend><div class="scale" data-q="d5-4"></div></fieldset>
+    <fieldset class="item" data-rev="1"><legend>Bei uns wird KI vor allem dort eingesetzt, wo es gerade auffällt oder gefordert wird, nicht dort, wo der Nutzen am größten wäre.<span class="rk">umgepolt</span></legend><div class="scale" data-q="d5-5"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Wir hätten eine grobe Vorstellung, welcher Nutzen einem Einführungsaufwand gegenüberstünde.</legend><div class="scale" data-q="d5-6"></div></fieldset>
+    <p><small>Validierungs-Pass 2026-06-26: Aussage 5.5 ist jetzt ein echtes umgepoltes Item — Zustimmung („KI dort, wo es gerade auffällt") signalisiert niedrige Wert-Reife. Damit trägt auch Dimension 5 die vom Diagnostics-HQ-Hausstandard geforderte Ja-Sage-Kontrolle.</small></p>
+  </section>
+
+  <div class="no-print" style="text-align:center;margin:24px 0">
+    <button class="btn" id="eval-btn-2" type="button">Auswertung anzeigen ↓</button>
+    <p class="js-only" id="eval-hint"><small>Noch nicht alle Aussagen beantwortet — fehlende zählen in der Demo als „weiß ich nicht" (1).</small></p>
+  </div>
+
+  </form>
+
+  <!-- ===== REPORT ===== -->
+  <section id="report">
+    <h2>Ihre Auswertung</h2>
+
+    <p class="no-js-note callout">
+      <strong>Ohne JavaScript</strong> wird hier keine berechnete Auswertung angezeigt. Der Fragebogen oben bleibt vollständig lesbar. Aktivieren Sie JavaScript, um Ihre Gesamt-Ampel, die Heatmap je Dimension, Ihre Hebel und den Roadmap-Teaser zu sehen. Die folgende Methodik gilt unabhängig davon.
+    </p>
+
+    <div class="js-only" id="report-live" hidden>
+      <div class="card accent-top">
+        <h3>Gesamt-Einordnung</h3>
+        <div class="gesamt">
+          <span class="ampel-dot" id="ges-dot"></span>
+          <div><div style="font-size:1.4rem;font-weight:800;color:var(--navy-deep)" id="ges-stufe"></div>
+          <div id="ges-text" style="color:var(--ink-soft)"></div></div>
+        </div>
+        <p style="margin-top:14px"><small>Das ist eine Standortbestimmung, kein Zeugnis. Der Gesamtwert ist bewusst nachrangig — die Heatmap je Dimension ist die eigentliche Aussage, nicht eine einzelne Zahl.</small></p>
+      </div>
+
+      <div class="card">
+        <h3>Heatmap über die fünf Dimensionen</h3>
+        <p><small>Schwächste oben — so wird der nächste Hebel sofort sichtbar.</small></p>
+        <div class="heat" id="heat"></div>
+      </div>
+
+      <div class="card">
+        <h3>Was schon trägt</h3>
+        <div id="staerken"></div>
+      </div>
+
+      <div class="card">
+        <h3>Ihre Hebel — die kritischen Lücken im Klartext</h3>
+        <div id="hebel"></div>
+      </div>
+
+      <div class="card">
+        <h3>Roadmap-Teaser</h3>
+        <p><small>Bewusst ein Teaser, kein Fahrplan — drei grobe Etappen aus Ihrem Profil. Der eigentliche Fahrplan entsteht im begleiteten Gespräch.</small></p>
+        <ol class="roadmap" id="roadmap"></ol>
+      </div>
+
+      <div class="card" id="vertiefen">
+        <h3>Tiefer gehen — so sähe eine vertiefte Auswertung aus</h3>
+        <p><small>Fahren Sie über eine Dimension (oder tippen Sie sie an) — Sie sehen beispielhaft, wie eine begleitete Tiefen-Diagnostik dieser Dimension aufschlüsselt. <strong>Nur Platzhalter-Daten zur Veranschaulichung.</strong></small></p>
+        <div class="vt-dims" id="vt-dims"></div>
+        <div class="vt-preview" id="vt-preview"></div>
+        <p class="vt-note">Die vertiefte Diagnostik startet erst nach einem <strong>kostenlosen Erstgespräch</strong> — der ausgearbeitete Report ist dann die eigentliche (kostenpflichtige) Leistung. Der Quick-Check und das Gespräch selbst kosten nichts.</p>
+        <p style="text-align:center;margin-top:14px"><button type="button" class="btn" id="vt-cta">Diese Dimension im Gespräch vertiefen →</button></p>
+      </div>
+    </div>
+
+    <!-- Mensch-/Grenze-Anker + CTA: statisch, immer sichtbar -->
+    <div class="card">
+      <h3>Was dieser Selbsttest bewusst nicht kann</h3>
+      <p>Diese Grenzen sind keine Schwäche, die man wegoptimiert — sie machen den Test ehrlich:</p>
+      <ul>
+        <li><strong>Selbst-Einschätzung ist nicht Außen-Sicht.</strong> Der Test misst, wie Ihr Team sich sieht, nicht wie es ist. Die Differenz zwischen gesagter und gelebter Reife deckt erst das begleitete Gespräch auf.</li>
+        <li><strong>Er sagt <em>was</em>, nicht <em>warum</em> und nicht <em>was es kostet</em>.</strong> Welcher Schritt als Nächstes käme, zeigt der Report. Warum gerade das jetzt zählt und was es in Ihrem Alltag kostet, beantwortet nur das Gespräch.</li>
+        <li><strong>Kein Benchmark, kein Mitarbeiter-Assessment.</strong> Der Quick-Check ist Reflexions-Anker, nie Bewertungsinstrument für einzelne Personen.</li>
+      </ul>
+    </div>
+
+    <div class="card inv" id="cta">
+      <h3>Der nächste Schritt: berater-geführte Tiefe</h3>
+      <p>Dieser Check zeigt Ihr Profil. Was er nicht kann: mit Ihrem Team die Lücken durchsprechen, die Selbst-Einschätzung an der gelebten Praxis spiegeln und einordnen, was die nächste Bewegung in Ihrem Kontext wirklich kostet. Genau hier setzt die begleitete Diagnostik an.</p>
+      <p style="margin-top:12px;color:#c9d6e8;font-size:.92rem">Fair und ohne Überraschung: Der Quick-Check und das Erstgespräch sind <strong style="color:#fff">kostenlos</strong>. Erst wenn wir gesprochen haben und Sie eine vertiefte Diagnostik möchten, entsteht daraus ein kleiner Auftrag — der ausgearbeitete Report ist dann die eigentliche Leistung.</p>
+      <p style="margin-top:16px">
+        <a class="btn" href="mailto:jay@aivantum.com?subject=Gespr%C3%A4ch%20zum%20AI-Readiness-Check">Gespräch anfragen</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p><strong>AI-Readiness-Quick-Check · by Vantum</strong> — eine Standortbestimmung über fünf Dimensionen, kein Zeugnis. Ampel-Schwellen: 🔴 &lt; 2.5 · 🟡 2.5–3.5 · 🟢 ≥ 3.5. Die Auswertung wird in Ihrem Browser berechnet; Ihre E-Mail und Ihr Ergebnis-Profil werden nur nach Ihrer Einwilligung übermittelt — um Ihnen die Auswertung zu senden und, falls von Ihnen gewünscht, Kontakt aufzunehmen. Details im <a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a>.</p>
+</footer>
+
+<!-- ===== Email-Gate ===== -->
+<div class="gate-overlay" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <form class="gate" id="gate-form" novalidate>
+    <h3 id="gate-title">Ihre Auswertung ist fertig.</h3>
+    <p class="sub">Geben Sie Ihre E-Mail-Adresse ein — Sie sehen Ihr Ergebnis sofort hier auf der Seite und bekommen es zusätzlich per Mail, damit Sie es in Ruhe durchgehen können.</p>
+    <p class="err" id="gate-err"></p>
+    <label class="fld" for="gate-email">E-Mail-Adresse</label>
+    <input type="email" id="gate-email" name="email" required autocomplete="email" placeholder="name@firma.de">
+    <label class="check"><input type="checkbox" id="gate-news" name="newsletter"><span>Schicken Sie mir den Vantum-Newsletter mit KI-Impulsen für Teams (jederzeit abbestellbar).</span></label>
+    <label class="check"><input type="checkbox" id="gate-tier3" name="tier3"><span>Ich interessiere mich für das begleitete Enablement-Programm (Tier&nbsp;3) — bitte melden Sie sich dazu bei mir.</span></label>
+    <label class="check"><input type="checkbox" id="gate-consent" name="consent" required><span>Ich bin einverstanden, dass meine Angaben zur Erstellung der Auswertung und zur Kontaktaufnahme verarbeitet werden (<a href="datenschutz.html" target="_blank" rel="noopener">Datenschutz</a>).</span></label>
+    <div class="actions">
+      <button type="button" class="btn ghost" id="gate-cancel">Zurück</button>
+      <button type="submit" class="btn" id="gate-submit">Auswertung zeigen</button>
+    </div>
+    <p class="fine">Ihre Antworten werden zur Erstellung Ihrer Auswertung verarbeitet und nicht an Dritte weitergegeben. Den Newsletter erhalten Sie nur, wenn Sie es oben ankreuzen.</p>
+  </form>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  document.documentElement.className = "js";
+  // JS-only Elemente sichtbar machen, no-js-note ausblenden
+  var st = document.createElement("style");
+  st.textContent = ".js .js-only{display:block} .js .no-js-note{display:none}";
+  document.head.appendChild(st);
+
+  var SCALE = [
+    {v:1, lab:"trifft überhaupt<br>nicht zu"},
+    {v:2, lab:"trifft eher<br>nicht zu"},
+    {v:3, lab:"teils,<br>teils"},
+    {v:4, lab:"trifft<br>eher zu"},
+    {v:5, lab:"trifft<br>voll zu"}
+  ];
+
+  // Skalen-Radios in jeden .scale-Container rendern
+  var scales = document.querySelectorAll(".scale");
+  scales.forEach(function(sc){
+    var q = sc.getAttribute("data-q");
+    SCALE.forEach(function(o){
+      var opt = document.createElement("span"); opt.className = "opt";
+      var id = q + "-" + o.v;
+      var inp = document.createElement("input");
+      inp.type = "radio"; inp.name = q; inp.id = id; inp.value = o.v;
+      var lab = document.createElement("label"); lab.setAttribute("for", id);
+      lab.innerHTML = '<span class="v">' + o.v + '</span>' + o.lab;
+      opt.appendChild(inp); opt.appendChild(lab);
+      sc.appendChild(opt);
+      inp.addEventListener("change", updateProgress);
+    });
+  });
+
+  var TOTAL = scales.length; // 30
+  function answeredCount(){
+    var n = 0;
+    scales.forEach(function(sc){
+      if (sc.querySelector("input:checked")) n++;
+    });
+    return n;
+  }
+  function updateProgress(){
+    var n = answeredCount();
+    document.getElementById("progress-text").textContent = n + " / " + TOTAL + " beantwortet";
+    document.getElementById("progress-fill").style.width = (100*n/TOTAL) + "%";
+    document.getElementById("eval-btn").disabled = (n === 0);
+    var hint = document.getElementById("eval-hint");
+    if (hint) hint.style.display = (n < TOTAL && n > 0) ? "block" : "none";
+  }
+
+  // ---- Auswertungs-Logik ----
+  var META = {
+    d1:{name:"Foundation",
+        luecke:"Es fehlt der gesicherte Boden — eine freigegebene Umgebung, dokumentierte Abläufe oder ein erster regelmäßiger Anwendungsfall sind noch nicht geklärt.",
+        schritt:"Eine sichere, freigegebene Nutzungs-Umgebung schaffen und einen ersten wiederkehrenden Ablauf bewusst auf KI stellen."},
+    d2:{name:"Daten",
+        luecke:"Die Datengrundlage ist verstreut oder in Qualität, Zugriff und Schutzbedarf noch unklar — KI findet kein verlässliches Material vor.",
+        schritt:"Die wichtigsten Datenquellen auffindbar machen, Verantwortlichkeit klären und den Schutzbedarf benennen."},
+    d3:{name:"Menschen",
+        luecke:"Skills, Haltung oder Selbstwirksamkeit tragen den Einsatz noch nicht; teils überwiegt die Sorge, ersetzt zu werden.",
+        schritt:"Raum für angstfreies Ausprobieren öffnen und konkrete Entlastungs-Erlebnisse im Alltag sichtbar machen."},
+    d4:{name:"Governance",
+        luecke:"Es fehlen klare Regeln, eine verantwortliche Rolle und die Auseinandersetzung mit dem EU AI Act (ab 08/2026).",
+        schritt:"Eine einfache KI-Nutzungs-Leitplanke festlegen, eine verantwortliche Rolle benennen und die Transparenzpflichten prüfen."},
+    d5:{name:"Wertschöpfung & Use-Cases",
+        luecke:"Der konkrete Wertbeitrag und die Mensch-Grenze sind noch nicht benannt — wo lohnt KI sich, und wo bleibt der Mensch unersetzlich?",
+        schritt:"Zwei bis drei lohnende Abläufe benennen und bewusst trennen, was KI unterstützt und was in Menschenhand bleibt."}
+  };
+
+  function stufeFor(score){
+    // Zwei koordinierte Lesarten (Validierungs-Pass 2026-06-26):
+    //  Ampel = Diagnostics-HQ-Hausstandard RAG, fix & deckungsgleich mit D: rot <2.5 · gelb 2.5–3.5 · gruen ≥3.5
+    //  Stufe = AIVC-4-Stufen, narrativ (nie eingefärbt): Foundational <2.0 · Critical <3.0 · Close <4.0 · Etabliert ≥4.0
+    var ampel = score < 2.5 ? "rot" : (score < 3.5 ? "gelb" : "gruen");
+    var label, kurz;
+    if (score < 2.0)      { label = "Foundational gaps"; kurz = "Fundament fehlt"; }
+    else if (score < 3.0) { label = "Critical gaps";     kurz = "substanzielle Lücken"; }
+    else if (score < 4.0) { label = "Close tweaks";      kurz = "knapp unter Reife"; }
+    else                  { label = "Etablierte Reife";  kurz = "etabliert"; }
+    return {ampel:ampel, label:label, kurz:kurz};
+  }
+
+  function evaluate(){
+    var dims = document.querySelectorAll("section.dim");
+    var results = [];
+    dims.forEach(function(sec){
+      var id = sec.getAttribute("data-dim");
+      var items = sec.querySelectorAll("fieldset.item");
+      var sum = 0, cnt = 0, spread = [];
+      items.forEach(function(fs){
+        var rev = fs.getAttribute("data-rev") === "1";
+        var checked = fs.querySelector("input:checked");
+        var raw = checked ? parseInt(checked.value,10) : 1; // unbeantwortet = 1 (weiß ich nicht)
+        var eff = rev ? (6 - raw) : raw;
+        sum += eff; cnt++; spread.push(eff);
+      });
+      var score = sum / cnt;
+      var mean = score;
+      var variance = spread.reduce(function(a,e){return a + Math.pow(e-mean,2);},0)/cnt;
+      results.push({id:id, name:META[id].name, score:score, spread:variance, st:stufeFor(score)});
+    });
+
+    var overall = results.reduce(function(a,r){return a+r.score;},0)/results.length;
+    var ost = stufeFor(overall);
+
+    // Gesamt
+    var dot = document.getElementById("ges-dot");
+    dot.className = "ampel-dot " + ost.ampel;
+    document.getElementById("ges-stufe").textContent = ost.label + " — Gesamt " + overall.toFixed(1) + " / 5";
+    document.getElementById("ges-text").textContent =
+      "Über alle fünf Dimensionen ergibt sich der Reifegrad „" + ost.label + "“ (" + ost.kurz + "). Entscheidend ist aber, welche Dimension den nächsten Schritt blockiert — siehe Heatmap.";
+
+    // Heatmap: schwächste oben
+    var sorted = results.slice().sort(function(a,b){
+      if (a.score !== b.score) return a.score - b.score;
+      return b.spread - a.spread; // Gleichstand: größere Streuung zuerst
+    });
+    var heat = document.getElementById("heat"); heat.innerHTML = "";
+    sorted.forEach(function(r){
+      var row = document.createElement("div");
+      row.className = "row " + r.st.ampel;
+      row.innerHTML = '<span class="dot ' + r.st.ampel + '"></span>' +
+        '<span><span class="nm">' + r.name + '</span><span class="stufe">' + r.st.label + ' · ' + r.st.kurz + '</span></span>' +
+        '<span class="sc">' + r.score.toFixed(1) + '</span>';
+      heat.appendChild(row);
+    });
+
+    // Stärken (grün/gelb)
+    var staerken = document.getElementById("staerken");
+    var stark = results.filter(function(r){return r.st.ampel !== "rot";})
+                       .sort(function(a,b){return b.score-a.score;});
+    if (stark.length){
+      staerken.innerHTML = "<p>Diese Dimensionen tragen schon — hier steht ein Fundament, auf dem die nächsten Schritte aufsetzen:</p>";
+      var ul = document.createElement("ul");
+      stark.forEach(function(r){
+        var li = document.createElement("li");
+        li.innerHTML = "<strong>" + r.name + "</strong> (" + r.score.toFixed(1) + ", " + r.st.label + ")";
+        ul.appendChild(li);
+      });
+      staerken.appendChild(ul);
+    } else {
+      staerken.innerHTML = "<p>Aktuell trägt noch keine Dimension klar. Das ist kein Urteil — es heißt, dass der erste, gesicherte Schritt umso mehr zählt. Genau dabei hilft das begleitete Gespräch.</p>";
+    }
+
+    // Hebel: 2–3 schwächste
+    var hebelN = sorted.filter(function(r){return r.st.ampel==="rot";}).length;
+    var hebelCount = Math.min(3, Math.max(2, hebelN || 2));
+    hebelCount = Math.min(hebelCount, sorted.length);
+    var hebel = document.getElementById("hebel"); hebel.innerHTML = "";
+    sorted.slice(0, hebelCount).forEach(function(r){
+      var d = document.createElement("div"); d.className = "hebel-card";
+      d.innerHTML = "<h4>" + r.name + " — " + r.st.label + " (" + r.score.toFixed(1) + ")</h4>" +
+        "<p>" + META[r.id].luecke + "</p>" +
+        "<p><strong>Nächster sinnvoller Schritt:</strong> " + META[r.id].schritt + "</p>";
+      hebel.appendChild(d);
+    });
+
+    // Roadmap-Teaser aus den schwächsten Dimensionen
+    var rm = document.getElementById("roadmap"); rm.innerHTML = "";
+    var first = sorted[0], second = sorted[1];
+    var steps = [
+      "<strong>Zuerst:</strong> " + META[first.id].schritt + " (Dimension „" + first.name + "“ ist heute der härteste Engpass).",
+      "<strong>Als Enabler vorher klären:</strong> " + META[second.id].schritt + " — ohne diese Grundlage trägt der erste Schritt nicht dauerhaft.",
+      "<strong>Fortschritt erkennbar machen:</strong> einen einfachen, wiederholbaren Indikator je Dimension festlegen, an dem Sie in 4–6 Wochen sehen, ob sich der Boden bewegt — bevor in die Breite skaliert wird."
+    ];
+    steps.forEach(function(s){ var li = document.createElement("li"); li.innerHTML = s; rm.appendChild(li); });
+
+    renderVertiefen(sorted);
+
+    document.getElementById("report").scrollIntoView({behavior:"smooth"});
+  }
+
+  // ---- Vertiefen-Vorschau (Hover-Teaser, neutral, Dummy-Daten) ----
+  function renderVertiefen(sorted){
+    var vtDims = document.getElementById("vt-dims");
+    var vtPrev = document.getElementById("vt-preview");
+    if (!vtDims || !vtPrev) return;
+    var SUBS = ["Ist-Aufnahme je Facette", "Selbst- vs. Fremdbild", "Engpass-Tiefe", "Wirksamkeits-Hebel"];
+    function renderPreview(r){
+      Array.prototype.forEach.call(vtDims.children, function(b){
+        b.classList.toggle("active", b.getAttribute("data-dim") === r.id);
+      });
+      var seed = Math.round(r.score * 10);
+      var base = [62, 47, 71, 54];
+      var bars = SUBS.map(function(s, i){
+        var v = Math.max(18, Math.min(94, base[i] + ((seed * 7 + i * 13) % 24) - 12));
+        var col = v < 40 ? "var(--danger)" : v < 65 ? "var(--warn)" : "var(--ok)";
+        return '<div class="vt-bar"><span class="lbl">' + s + '</span>' +
+               '<span class="track"><i style="width:' + v + '%;background:' + col + '"></i></span>' +
+               '<span class="val">' + v + '</span></div>';
+      }).join("");
+      vtPrev.innerHTML =
+        '<span class="vt-sticker">Beispiel · Dummy-Daten</span>' +
+        '<h4>Vertiefte Auswertung · ' + r.name + '</h4>' + bars +
+        '<div class="vt-rec"><strong>Beispielhafter Hebel:</strong> Eine begleitete Diagnostik schlüsselt genau diese Dimension in ihre Facetten auf, spiegelt die Selbst-Einschätzung an der gelebten Praxis und macht den nächsten Schritt in Ihrem Kontext konkret — mit echten Daten statt Platzhaltern.</div>';
+    }
+    vtDims.innerHTML = "";
+    sorted.forEach(function(r){
+      var b = document.createElement("button");
+      b.type = "button"; b.setAttribute("data-dim", r.id);
+      b.innerHTML = '<span class="d ' + r.st.ampel + '"></span>' + r.name;
+      b.addEventListener("mouseenter", function(){ renderPreview(r); });
+      b.addEventListener("focus", function(){ renderPreview(r); });
+      b.addEventListener("click", function(){ renderPreview(r); });
+      vtDims.appendChild(b);
+    });
+    renderPreview(sorted[0]); // Default = schwächste Dimension
+  }
+
+  // ---- Email-Gate + Versand ----
+  // Cloudflare-Worker-URL. Leer = Staging (Ergebnis wird gezeigt, aber nichts gesendet).
+  var SUBMIT_ENDPOINT = "https://aivantum-check.aivantum.workers.dev/submit-check";
+
+  var gate = document.getElementById("gate");
+  var gateForm = document.getElementById("gate-form");
+  var gateErr = document.getElementById("gate-err");
+  var reportLive = document.getElementById("report-live");
+  var unlocked = false;
+
+  function showErr(msg){ gateErr.textContent = msg; gateErr.classList.add("show"); }
+  function openGate(){
+    if (answeredCount() === 0) return;
+    if (unlocked){ evaluate(); return; }
+    gateErr.classList.remove("show");
+    gate.classList.add("open");
+    setTimeout(function(){ document.getElementById("gate-email").focus(); }, 60);
+  }
+  function closeGate(){ gate.classList.remove("open"); }
+
+  function collectPayload(email){
+    var scores = {}, answers = {};
+    document.querySelectorAll("section.dim").forEach(function(sec){
+      var id = sec.getAttribute("data-dim");
+      var sum = 0, cnt = 0;
+      sec.querySelectorAll("fieldset.item").forEach(function(fs){
+        var rev = fs.getAttribute("data-rev") === "1";
+        var checked = fs.querySelector("input:checked");
+        var raw = checked ? parseInt(checked.value, 10) : null;
+        answers[fs.querySelector(".scale").getAttribute("data-q")] = raw;
+        var eff = rev ? (6 - (raw || 1)) : (raw || 1);
+        sum += eff; cnt++;
+      });
+      scores[id] = { name: META[id].name, score: +(sum / cnt).toFixed(2) };
+    });
+    var overall = Object.keys(scores).reduce(function(a, k){ return a + scores[k].score; }, 0) / 5;
+    return {
+      email: email,
+      newsletter: document.getElementById("gate-news").checked,
+      tier3: document.getElementById("gate-tier3").checked,
+      answered: answeredCount(), total: TOTAL,
+      overall: +overall.toFixed(2), scores: scores, answers: answers,
+      ts: new Date().toISOString(), source: "check.aivantum.com"
+    };
+  }
+
+  gateForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    gateErr.classList.remove("show");
+    var email = document.getElementById("gate-email").value.trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ showErr("Bitte eine gültige E-Mail-Adresse eingeben."); return; }
+    if (!document.getElementById("gate-consent").checked){ showErr("Bitte die Einwilligung bestätigen, um die Auswertung zu sehen."); return; }
+
+    var btn = document.getElementById("gate-submit");
+    btn.disabled = true; btn.textContent = "Wird gesendet …";
+    var payload = collectPayload(email);
+    function reveal(){
+      unlocked = true; closeGate();
+      reportLive.hidden = false; evaluate();
+      btn.disabled = false; btn.textContent = "Auswertung zeigen";
+    }
+    if (!SUBMIT_ENDPOINT){ // Staging: kein Backend verdrahtet
+      if (window.console) console.log("[check] Staging-Modus (kein Versand). Payload:", payload);
+      reveal(); return;
+    }
+    fetch(SUBMIT_ENDPOINT, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload) })
+      .then(function(r){ if(!r.ok) throw new Error("status " + r.status); return r.json().catch(function(){ return {}; }); })
+      .then(function(){ reveal(); })
+      .catch(function(err){ if(window.console) console.warn("[check] Versand fehlgeschlagen:", err); reveal(); });
+  });
+
+  document.getElementById("gate-cancel").addEventListener("click", closeGate);
+  gate.addEventListener("click", function(e){ if (e.target === gate) closeGate(); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && gate.classList.contains("open")) closeGate(); });
+
+  document.getElementById("eval-btn").addEventListener("click", openGate);
+  document.getElementById("eval-btn-2").addEventListener("click", openGate);
+  var vtCta = document.getElementById("vt-cta");
+  if (vtCta) vtCta.addEventListener("click", function(){
+    document.getElementById("cta").scrollIntoView({ behavior: "smooth" });
+  });
+  updateProgress();
+})();
+</script>
+</body>
+</html>
