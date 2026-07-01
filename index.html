@@ -376,6 +376,13 @@ footer{border-top:1px solid var(--line);margin-top:50px;padding:26px 0 50px;colo
         <ol class="roadmap" id="roadmap"></ol>
       </div>
 
+      <div class="card" id="empfehlung-card">
+        <h3>Ihre empfohlene Vertiefung</h3>
+        <p><small>Zu Ihren schwächsten Dimensionen passen diese Instrumente aus dem AIVC Spectrum — je ein Beispiel-Report zeigt, wie die ausgearbeitete Tiefen-Diagnostik aussieht (<strong>Beispiel-Daten</strong>, nicht Ihr Ergebnis).</small></p>
+        <div id="empfehlung"></div>
+        <p style="margin-top:14px;font-size:.95rem"><a href="https://gallery.aivantum.com/" target="_blank" rel="noopener">Alle fünf Instrumente im Überblick — das AIVC&nbsp;Spectrum&nbsp;→</a></p>
+      </div>
+
       <div class="card" id="vertiefen">
         <h3>Tiefer gehen — so sähe eine vertiefte Auswertung aus</h3>
         <p><small>Fahren Sie über eine Dimension (oder tippen Sie sie an) — Sie sehen beispielhaft, wie eine begleitete Tiefen-Diagnostik dieser Dimension aufschlüsselt. <strong>Nur Platzhalter-Daten zur Veranschaulichung.</strong></small></p>
@@ -601,6 +608,33 @@ footer{border-top:1px solid var(--line);margin-top:50px;padding:26px 0 50px;colo
       "<strong>Fortschritt erkennbar machen:</strong> einen einfachen, wiederholbaren Indikator je Dimension festlegen, an dem Sie in 4–6 Wochen sehen, ob sich der Boden bewegt — bevor in die Breite skaliert wird."
     ];
     steps.forEach(function(s){ var li = document.createElement("li"); li.innerHTML = s; rm.appendChild(li); });
+
+    // Empfohlene Vertiefung: schwächste Dimensionen -> AIVC-Spectrum-Instrumente (Mapping Jay 02.07.)
+    var AIVC = {
+      aivch:  { code:"AIVCH",  name:"Organisation — Health Check",        desc:"Reife- und Risiko-Aufnahme auf Organisations- und Führungsebene.", url:"https://gallery.aivantum.com/frozen/aivch.html" },
+      aivco:  { code:"AIVCO",  name:"Abteilung — Operations Potential",   desc:"Automatisierungs-Potenzial und Team-Operations Ihrer Abteilung.",  url:"https://gallery.aivantum.com/frozen/aivco.html" },
+      aivcir: { code:"AIVCIR", name:"IT-Infrastruktur — Infrastructure ROI", desc:"Plattform- und Infrastruktur-Reife als Boden für alles Weitere.", url:"https://gallery.aivantum.com/frozen/aivcir.html" },
+      aivchw: { code:"AIVCHW", name:"Hardware & Arbeitsplatz — Hardware ROI", desc:"Endgeräte- und Compute-Reife direkt am Arbeitsplatz.",          url:"https://gallery.aivantum.com/frozen/aivchw.html" },
+      aivcio: { code:"AIVCIO", name:"Individueller Task — Individual Operations", desc:"Task-Readiness der einzelnen Person am Schreibtisch.",     url:"https://gallery.aivantum.com/frozen/aivcio.html" }
+    };
+    var DIM2AIVC = { d1:["aivcir","aivchw"], d2:["aivcir","aivco"], d3:["aivch","aivcio"], d4:["aivch"], d5:["aivco","aivcio"] };
+    var empf = document.getElementById("empfehlung");
+    if (empf){
+      empf.innerHTML = "";
+      var seen = {}, picks = [];
+      sorted.slice(0, hebelCount).forEach(function(r){
+        (DIM2AIVC[r.id] || []).forEach(function(k){
+          if (!seen[k] && picks.length < 3){ seen[k] = true; picks.push({ inst: AIVC[k], wegen: r.name }); }
+        });
+      });
+      picks.forEach(function(p){
+        var d = document.createElement("div"); d.className = "hebel-card";
+        d.innerHTML = "<h4>" + p.inst.code + " · " + p.inst.name + "</h4>" +
+          "<p>" + p.inst.desc + " <span style=\"color:#8a7d63\">(passt zu Ihrer Dimension „" + p.wegen + "“)</span></p>" +
+          "<p><a href=\"" + p.inst.url + "\" target=\"_blank\" rel=\"noopener\"><strong>Beispiel-Report ansehen →</strong></a></p>";
+        empf.appendChild(d);
+      });
+    }
 
     renderVertiefen(sorted);
 
