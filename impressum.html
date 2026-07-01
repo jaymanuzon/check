@@ -22,6 +22,14 @@ h2{font-size:1.35rem;margin:1.6em 0 .3em}
 address{font-style:normal;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 18px}
 .foot{border-top:1px solid var(--line);margin-top:36px;padding-top:14px;color:var(--muted);font-size:.82rem}
 .foot a{color:var(--muted)}
+
+/* ===== MOBILE-FIX (additiv, 390px, nichts oben veraendert) ===== */
+@media (max-width:768px){
+  /* Kein Defekt gefunden (Seite ohne Tabellen, h1 kurz genug) — nur defensiver
+     Guard, falls Inhalt/Titel spaeter waechst, konsistent mit den Schwesterseiten. */
+  h1{overflow-wrap:break-word;word-break:break-word}
+  html,body{overflow-x:hidden}
+}
 </style>
 </head>
 <body>

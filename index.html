@@ -191,6 +191,17 @@ footer{border-top:1px solid var(--line);margin-top:50px;padding:26px 0 50px;colo
   padding:10px 14px;margin-top:14px;font-size:.9rem;color:var(--ink-soft)}
 .vt-note{background:var(--warn-soft);border-radius:var(--r-sm);padding:10px 14px;font-size:.86rem;color:var(--warn-text);margin:14px 0 0}
 @media(max-width:560px){.vt-bar{grid-template-columns:108px 1fr 36px}.vt-preview .vt-sticker{right:-50px;padding:6px 60px}}
+
+/* ===== MOBILE-FIX (additiv, 390px, nichts oben veraendert) ===== */
+@media (max-width:768px){
+  /* Ursache: .scale nutzt flex-basis:0 fuer die Wrap-Entscheidung, danach zwingt
+     min-width:62px die Zeile zum Umbruch nur fuer das letzte der 5 Elemente
+     (haesslicher 4+1-Split). Fix: sauberes 3-Spalten-Grid (3+2), keine Restbreite. */
+  .scale{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .scale .opt{min-width:0}
+  .scale label{min-width:0;padding:8px 3px}
+  html,body{overflow-x:hidden}
+}
 </style>
 </head>
 <body>
