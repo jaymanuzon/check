@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>AI-Readiness-Quick-Check · by Vantum</title>
-<meta name="description" content="Ein ehrlicher Selbsttest in 10–15 Minuten: Wie reif ist Ihr Team für den KI-Einsatz? Sofortige Auswertung über fünf Dimensionen, per Mail zum Nachlesen.">
+<title>AI Readiness Quick Check · by Vantum</title>
+<meta name="description" content="An honest self-check in 10–15 minutes: How ready is your team for AI? Instant assessment across five dimensions, sent by email for later reference.">
 <link rel="alternate" hreflang="de" href="https://check.aivantum.com/">
 <link rel="alternate" hreflang="en" href="https://check.aivantum.com/en/">
 <link rel="alternate" hreflang="x-default" href="https://check.aivantum.com/">
@@ -348,9 +348,9 @@ img,svg{max-width:100%}
 
 <header class="mast">
   <div class="lang-switch" role="navigation" aria-label="Language / Sprache">
-    <a href="/" hreflang="de" class="is-active" aria-current="true">DE</a>
+    <a href="/" hreflang="de">DE</a>
     <span aria-hidden="true">·</span>
-    <a href="/en/" hreflang="en">EN</a>
+    <a href="/en/" hreflang="en" class="is-active" aria-current="true">EN</a>
   </div>
   <svg class="rings" viewBox="0 0 420 420" aria-hidden="true">
     <circle cx="210" cy="210" r="60"  stroke="var(--brand-soft-2)"/>
@@ -361,17 +361,17 @@ img,svg{max-width:100%}
   </svg>
   <div class="wrap">
     <span class="brand-chip"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6"/></svg></span>by Vantum</span>
-    <h1>AI-Readiness-Quick-Check</h1>
-    <p class="lead">Ein ehrlicher Selbsttest in 10 bis 15 Minuten: Wo steht Ihr Team wirklich, wenn es um den Einsatz von KI geht — und welche Grundlage blockiert gerade den nächsten Schritt?</p>
+    <h1>AI Readiness Quick Check</h1>
+    <p class="lead">An honest self-check in 10 to 15 minutes: Where does your team really stand when it comes to using AI — and which foundation is currently blocking the next step?</p>
   </div>
 </header>
 
 <!-- Sticky-Fortschritt: nur mit JS sinnvoll -->
 <div class="progress-bar js-only" id="progress">
   <div class="wrap">
-    <b id="progress-text">0 / 30 beantwortet</b>
+    <b id="progress-text">0 / 30 answered</b>
     <span class="track"><i id="progress-fill"></i></span>
-    <button class="btn" id="eval-btn" type="button" disabled>Auswertung anzeigen</button>
+    <button class="btn" id="eval-btn" type="button" disabled>Show assessment</button>
   </div>
 </div>
 
@@ -379,31 +379,31 @@ img,svg{max-width:100%}
 
   <!-- ===== INTRO ===== -->
   <section class="card accent-top" id="intro">
-    <p class="overline">KI-Reife · Quick-Check</p>
-    <h2>Worum es geht</h2>
-    <p>Die Frage „Sind wir reif für KI?" ist diffus. Dieser Quick-Check übersetzt sie in eine sortierte Sicht: über fünf Dimensionen hinweg zeigt er, welche Grundlage trägt und welche den nächsten Schritt aufhält. Am Ende erhalten Sie eine Gesamt-Einordnung, eine Heatmap je Dimension, Ihre Hebel und einen Roadmap-Teaser — sofort, ohne Wartezeit.</p>
+    <p class="overline">AI Readiness · Quick Check</p>
+    <h2>What this is about</h2>
+    <p>The question "Are we ready for AI?" is diffuse. This quick check translates it into a structured view: across five dimensions, it shows which foundation holds and which one is holding back the next step. At the end, you receive an overall rating, a heatmap per dimension, your levers, and a roadmap teaser — instantly, with no waiting.</p>
     <div class="meta-grid">
-      <div class="card"><h3>Zweck</h3><p>Standortbestimmung, kein Zeugnis. Eine erste, ehrliche Sicht darauf, wo der nächste sinnvolle Schritt liegt.</p></div>
-      <div class="card"><h3>Dauer</h3><p>Etwa 10–15 Minuten. 30 Aussagen, jeweils auf einer Skala von 1 bis 5.</p></div>
-      <div class="card"><h3>Für wen</h3><p>Eine Führungskraft oder ein Team-Verantwortlicher, der für das eigene Team antwortet.</p></div>
+      <div class="card"><h3>Purpose</h3><p>An orientation, not a report card. A first, honest view of where the next sensible step lies.</p></div>
+      <div class="card"><h3>Duration</h3><p>About 10–15 minutes. 30 statements, each rated on a scale from 1 to 5.</p></div>
+      <div class="card"><h3>Who it is for</h3><p>A leader or team lead answering on behalf of their own team.</p></div>
     </div>
     <div class="callout warn">
-      <strong>Was dieser Test bewusst nicht kann — und das ist Absicht.</strong> Er misst, wie Sie Ihr Team <em>selbst</em> sehen, nicht wie es objektiv ist. Die Differenz zwischen gesagter und gelebter Reife, das <em>Warum</em> hinter den Lücken und was eine Veränderung in Ihrem Alltag wirklich kostet — das deckt erst das begleitete Gespräch auf. Der Quick-Check ist die ehrliche Vorstufe, nicht der Ersatz. Mehr dazu am Ende.
+      <strong>What this test deliberately cannot do — and that is by design.</strong> It measures how you see your team <em>yourself</em>, not how it objectively is. The gap between stated and lived readiness, the <em>why</em> behind the gaps, and what a change would really cost in your day-to-day — only the guided conversation uncovers that. The quick check is the honest first stage, not a substitute. More on this at the end.
     </div>
   </section>
 
   <!-- ===== SKALEN-LEGENDE ===== -->
   <section class="card" id="skala">
-    <h3>So antworten Sie</h3>
-    <p>Jede Aussage bewerten Sie auf einer Skala von 1 (trifft überhaupt nicht zu) bis 5 (trifft voll zu). Wenn Sie den eigenen Stand nicht einschätzen können, ist das die 1 — fehlendes Wissen über sich selbst ist selbst ein Reifesignal.</p>
+    <h3>How to answer</h3>
+    <p>You rate each statement on a scale from 1 (does not apply at all) to 5 (fully applies). If you cannot assess your own position, that is a 1 — not knowing where you stand is itself a readiness signal.</p>
     <div class="legend">
-      <div class="lg"><b>1</b>Trifft überhaupt nicht zu / weiß ich nicht</div>
-      <div class="lg"><b>2</b>Trifft eher nicht zu</div>
-      <div class="lg"><b>3</b>Teils, teils</div>
-      <div class="lg"><b>4</b>Trifft eher zu</div>
-      <div class="lg"><b>5</b>Trifft voll zu / etabliert</div>
+      <div class="lg"><b>1</b>Does not apply at all / don't know</div>
+      <div class="lg"><b>2</b>Tends not to apply</div>
+      <div class="lg"><b>3</b>Partly applies</div>
+      <div class="lg"><b>4</b>Tends to apply</div>
+      <div class="lg"><b>5</b>Fully applies / established</div>
     </div>
-    <p style="margin-top:14px"><small>Mit <span class="rk" style="font-size:.6rem">umgepolt</span> markierte Aussagen sind bewusst gegenläufig formuliert: dort bedeutet hohe Zustimmung niedrige Reife. Sie werden in der Auswertung automatisch umgerechnet (<code>6 − Wert</code>) — Sie müssen nichts umdenken, einfach ehrlich antworten.</small></p>
+    <p style="margin-top:14px"><small>Statements marked <span class="rk" style="font-size:.6rem">reverse-scored</span> are deliberately phrased in the opposite direction: there, strong agreement means low readiness. They are converted automatically in the assessment (<code>6 − value</code>) — no mental arithmetic required, just answer honestly.</small></p>
   </section>
 
   <form id="check">
@@ -411,87 +411,87 @@ img,svg{max-width:100%}
   <!-- ===== DIMENSION 1 ===== -->
   <section class="dim" data-dim="d1" data-name="Foundation">
     <div class="dim-head"><span class="num">1</span><h2>Foundation</h2>
-      <span class="frage">Frage dahinter: Gibt es überhaupt einen Boden, auf dem KI-Einsatz stehen kann? (Technische &amp; prozessuale Grundvoraussetzungen)</span></div>
+      <span class="frage">The question behind it: Is there any ground at all for AI adoption to stand on? (Technical &amp; process prerequisites)</span></div>
 
-    <fieldset class="item" data-rev="0"><legend>In meinem Team gibt es eine sichere, freigegebene Umgebung, in der wir KI-Werkzeuge nutzen dürfen, ohne jedes Mal eine Einzelfreigabe einzuholen.</legend><div class="scale" data-q="d1-1"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Unsere wichtigsten wiederkehrenden Arbeitsabläufe sind so weit dokumentiert, dass eine neue Kollegin sie ohne Zuruf nachvollziehen könnte.</legend><div class="scale" data-q="d1-2"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Wir haben mindestens einen Arbeitsablauf, in dem KI heute schon regelmäßig und nicht nur sporadisch im Einsatz ist.</legend><div class="scale" data-q="d1-3"></div></fieldset>
-    <fieldset class="item" data-rev="1"><legend>KI-Einsatz passiert bei uns bisher eher zufällig, wenn jemand privat etwas ausprobiert, nicht systematisch.<span class="rk">umgepolt</span></legend><div class="scale" data-q="d1-4"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Die Werkzeuge, die wir bräuchten, sind technisch erreichbar (Zugang, Lizenz, Budget sind geklärt).</legend><div class="scale" data-q="d1-5"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Wir wüssten, an wen wir uns wenden, wenn ein KI-Werkzeug eingerichtet oder freigeschaltet werden müsste.</legend><div class="scale" data-q="d1-6"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>My team has a secure, approved environment in which we may use AI tools without requesting individual approval every time.</legend><div class="scale" data-q="d1-1"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Our most important recurring workflows are documented well enough that a new colleague could follow them without being talked through.</legend><div class="scale" data-q="d1-2"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>We have at least one workflow in which AI is already used regularly, not just sporadically.</legend><div class="scale" data-q="d1-3"></div></fieldset>
+    <fieldset class="item" data-rev="1"><legend>So far, AI use in our team happens rather by chance — when someone experiments privately — not systematically.<span class="rk">reverse-scored</span></legend><div class="scale" data-q="d1-4"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>The tools we would need are technically within reach (access, licensing, and budget are settled).</legend><div class="scale" data-q="d1-5"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>We would know whom to contact if an AI tool needed to be set up or enabled.</legend><div class="scale" data-q="d1-6"></div></fieldset>
   </section>
 
   <!-- ===== DIMENSION 2 ===== -->
-  <section class="dim" data-dim="d2" data-name="Daten">
-    <div class="dim-head"><span class="num">2</span><h2>Daten</h2>
-      <span class="frage">Frage dahinter: Findet KI bei uns überhaupt verlässliches Material vor? (Verfügbarkeit, Qualität, Governance, Zugangswege)</span></div>
+  <section class="dim" data-dim="d2" data-name="Data">
+    <div class="dim-head"><span class="num">2</span><h2>Data</h2>
+      <span class="frage">The question behind it: Does AI even find reliable material to work with here? (Availability, quality, governance, access paths)</span></div>
 
-    <fieldset class="item" data-rev="0"><legend>Die Daten, die wir für unsere Arbeit brauchen, sind auffindbar und liegen nicht verstreut in Köpfen, E-Mail-Postfächern und einzelnen Laufwerken.</legend><div class="scale" data-q="d2-1"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Wir könnten benennen, wie gut oder schlecht die Qualität unserer wichtigsten Daten ist (Aktualität, Vollständigkeit, Dubletten).</legend><div class="scale" data-q="d2-2"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Es ist klar geregelt, wer auf welche Daten zugreifen darf und wer dafür verantwortlich ist.</legend><div class="scale" data-q="d2-3"></div></fieldset>
-    <fieldset class="item" data-rev="1"><legend>Wenn ich eine konkrete Information bräuchte, müsste ich erst mehrere Leute fragen, bis ich sie zusammenhabe.<span class="rk">umgepolt</span></legend><div class="scale" data-q="d2-4"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Unsere Daten liegen überwiegend digital und maschinenlesbar vor, nicht in Papier, Screenshots oder PDFs ohne Struktur.</legend><div class="scale" data-q="d2-5"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Wir wissen, welche unserer Daten besonders schützenswert sind und behandeln sie entsprechend.</legend><div class="scale" data-q="d2-6"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>The data we need for our work is findable and not scattered across people's heads, email inboxes, and individual drives.</legend><div class="scale" data-q="d2-1"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>We could state how good or poor the quality of our most important data is (currency, completeness, duplicates).</legend><div class="scale" data-q="d2-2"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>It is clearly regulated who may access which data and who is responsible for it.</legend><div class="scale" data-q="d2-3"></div></fieldset>
+    <fieldset class="item" data-rev="1"><legend>If I needed a specific piece of information, I would first have to ask several people before I had it all together.<span class="rk">reverse-scored</span></legend><div class="scale" data-q="d2-4"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Our data is predominantly digital and machine-readable, not stored in paper, screenshots, or unstructured PDFs.</legend><div class="scale" data-q="d2-5"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>We know which of our data is particularly sensitive and treat it accordingly.</legend><div class="scale" data-q="d2-6"></div></fieldset>
   </section>
 
   <!-- ===== DIMENSION 3 ===== -->
-  <section class="dim" data-dim="d3" data-name="Menschen">
-    <div class="dim-head"><span class="num">3</span><h2>Menschen</h2>
-      <span class="frage">Frage dahinter: Können und wollen die Menschen, und trauen sie sich es zu? (Skills, Stance, Selbstwirksamkeit)</span></div>
+  <section class="dim" data-dim="d3" data-name="People">
+    <div class="dim-head"><span class="num">3</span><h2>People</h2>
+      <span class="frage">The question behind it: Are people able and willing, and do they trust themselves to do it? (Skills, stance, self-efficacy)</span></div>
 
-    <fieldset class="item" data-rev="0"><legend>Die meisten in meinem Team könnten eine konkrete Aufgabe nennen, bei der KI ihnen die eigene Arbeit schon erleichtert.</legend><div class="scale" data-q="d3-1"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Bei uns ist die Haltung zu KI weder pauschale Abwehr noch pauschaler Hype, sondern ein nüchternes „kommt darauf an, wofür".</legend><div class="scale" data-q="d3-2"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Es gibt bei uns Raum und Zeit, Neues auszuprobieren, ohne dass ein Fehlversuch sanktioniert wird.</legend><div class="scale" data-q="d3-3"></div></fieldset>
-    <fieldset class="item" data-rev="1"><legend>In meinem Team sorgen sich Leute eher, durch KI ersetzt zu werden, als dass sie sich davon entlastet fühlen.<span class="rk">umgepolt</span></legend><div class="scale" data-q="d3-4"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Ich selbst fühle mich sicher genug, um zu beurteilen, wann ein KI-Ergebnis brauchbar ist und wann nicht.</legend><div class="scale" data-q="d3-5"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Wir reden offen darüber, was KI bei uns verändert, statt dass jeder still für sich seine Schlüsse zieht.</legend><div class="scale" data-q="d3-6"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Most people on my team could name a specific task where AI already makes their own work easier.</legend><div class="scale" data-q="d3-1"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>Our attitude toward AI is neither blanket rejection nor blanket hype, but a sober "it depends on what for".</legend><div class="scale" data-q="d3-2"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>There is room and time for us to try new things without a failed attempt being penalized.</legend><div class="scale" data-q="d3-3"></div></fieldset>
+    <fieldset class="item" data-rev="1"><legend>People on my team worry more about being replaced by AI than they feel relieved by it.<span class="rk">reverse-scored</span></legend><div class="scale" data-q="d3-4"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>I personally feel confident enough to judge when an AI result is usable and when it is not.</legend><div class="scale" data-q="d3-5"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>We talk openly about what AI is changing for us, rather than everyone quietly drawing their own conclusions.</legend><div class="scale" data-q="d3-6"></div></fieldset>
   </section>
 
   <!-- ===== DIMENSION 4 ===== -->
   <section class="dim" data-dim="d4" data-name="Governance">
     <div class="dim-head"><span class="num">4</span><h2>Governance</h2>
-      <span class="frage">Frage dahinter: Gibt es Leitplanken, oder fahren wir ohne? (Regeln, Verantwortung, ethische Leitplanken)</span></div>
+      <span class="frage">The question behind it: Are there guardrails, or are we driving without them? (Rules, accountability, ethical guardrails)</span></div>
 
-    <fieldset class="item" data-rev="0"><legend>Bei uns ist klar, was im Umgang mit KI erlaubt ist und was nicht (welche Daten rein dürfen, welche nicht).</legend><div class="scale" data-q="d4-1"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Es gibt eine benannte Person oder Rolle, die für den verantwortungsvollen KI-Einsatz zuständig ist.</legend><div class="scale" data-q="d4-2"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Wir haben uns mit den Transparenz- und Kennzeichnungspflichten des EU AI Act befasst, die ab August 2026 greifen.</legend><div class="scale" data-q="d4-3"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Wenn jemand bei uns KI nutzt, achtet er von sich aus auf Datenschutz und gibt keine sensiblen Inhalte unbedacht ein.</legend><div class="scale" data-q="d4-4"></div></fieldset>
-    <fieldset class="item" data-rev="1"><legend>Bei uns nutzt jeder KI nach eigenem Gutdünken, gemeinsame Regeln gibt es dafür bisher nicht.<span class="rk">umgepolt</span></legend><div class="scale" data-q="d4-5"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Es ist klar, an wen ein Problem oder ein Zweifelsfall beim KI-Einsatz eskaliert wird.</legend><div class="scale" data-q="d4-6"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>It is clear to us what is and is not allowed when working with AI (which data may go in, which may not).</legend><div class="scale" data-q="d4-1"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>There is a designated person or role accountable for the responsible use of AI.</legend><div class="scale" data-q="d4-2"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>We have engaged with the transparency and labeling obligations of the EU AI Act that take effect in August 2026.</legend><div class="scale" data-q="d4-3"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>When someone here uses AI, they pay attention to data protection of their own accord and do not carelessly enter sensitive content.</legend><div class="scale" data-q="d4-4"></div></fieldset>
+    <fieldset class="item" data-rev="1"><legend>Here, everyone uses AI at their own discretion — there are no shared rules for it so far.<span class="rk">reverse-scored</span></legend><div class="scale" data-q="d4-5"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>It is clear to whom a problem or a borderline case in AI use gets escalated.</legend><div class="scale" data-q="d4-6"></div></fieldset>
   </section>
 
   <!-- ===== DIMENSION 5 ===== -->
-  <section class="dim" data-dim="d5" data-name="Wertschöpfung &amp; Use-Cases">
-    <div class="dim-head"><span class="num">5</span><h2>Wertschöpfung &amp; Use-Cases</h2>
-      <span class="frage">Frage dahinter: Wissen wir, wo KI wirklich Wert schafft und wo der Mensch unersetzlich bleibt? (Verdichtete operative Facetten)</span></div>
+  <section class="dim" data-dim="d5" data-name="Value Creation &amp; Use Cases">
+    <div class="dim-head"><span class="num">5</span><h2>Value Creation &amp; Use Cases</h2>
+      <span class="frage">The question behind it: Do we know where AI truly creates value and where people remain irreplaceable? (Condensed operational facets)</span></div>
 
-    <fieldset class="item" data-rev="0"><legend>Wir könnten zwei oder drei konkrete Arbeitsabläufe benennen, bei denen sich KI-Einsatz spürbar lohnen würde.</legend><div class="scale" data-q="d5-1"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Wir unterscheiden bewusst zwischen Aufgaben, bei denen KI uns unterstützen soll, und solchen, die in Menschenhand bleiben müssen (Urteil, Beziehung, Verantwortung).</legend><div class="scale" data-q="d5-2"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Bei den Abläufen, die wir automatisieren würden, ist das gewünschte Ergebnis klar genug beschreibbar, dass man Erfolg erkennen würde.</legend><div class="scale" data-q="d5-3"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Wir prüfen KI-Ergebnisse, bevor wir sie weiterverwenden, statt sie ungeprüft zu übernehmen.</legend><div class="scale" data-q="d5-4"></div></fieldset>
-    <fieldset class="item" data-rev="1"><legend>Bei uns wird KI vor allem dort eingesetzt, wo es gerade auffällt oder gefordert wird, nicht dort, wo der Nutzen am größten wäre.<span class="rk">umgepolt</span></legend><div class="scale" data-q="d5-5"></div></fieldset>
-    <fieldset class="item" data-rev="0"><legend>Wir hätten eine grobe Vorstellung, welcher Nutzen einem Einführungsaufwand gegenüberstünde.</legend><div class="scale" data-q="d5-6"></div></fieldset>
-    <p><small>Validierungs-Pass 2026-06-26: Aussage 5.5 ist jetzt ein echtes umgepoltes Item — Zustimmung („KI dort, wo es gerade auffällt") signalisiert niedrige Wert-Reife. Damit trägt auch Dimension 5 die vom Diagnostics-HQ-Hausstandard geforderte Ja-Sage-Kontrolle.</small></p>
+    <fieldset class="item" data-rev="0"><legend>We could name two or three specific workflows where using AI would noticeably pay off.</legend><div class="scale" data-q="d5-1"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>We consciously distinguish between tasks where AI should support us and those that must remain in human hands (judgment, relationships, responsibility).</legend><div class="scale" data-q="d5-2"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>For the workflows we would automate, the desired outcome can be described clearly enough that success would be recognizable.</legend><div class="scale" data-q="d5-3"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>We review AI results before we use them further, rather than adopting them unchecked.</legend><div class="scale" data-q="d5-4"></div></fieldset>
+    <fieldset class="item" data-rev="1"><legend>Here, AI is used mainly where it happens to attract attention or is demanded, not where the benefit would be greatest.<span class="rk">reverse-scored</span></legend><div class="scale" data-q="d5-5"></div></fieldset>
+    <fieldset class="item" data-rev="0"><legend>We would have a rough idea of what benefit would stand against the effort of introducing it.</legend><div class="scale" data-q="d5-6"></div></fieldset>
+    <p><small>Validation pass 2026-06-26: statement 5.5 is now a true reverse-scored item — agreement ("AI where it happens to attract attention") signals low value readiness. With this, dimension 5 also carries the acquiescence-bias control required by the Diagnostics HQ house standard.</small></p>
   </section>
 
   <div class="no-print" style="text-align:center;margin:32px 0">
-    <button class="btn" id="eval-btn-2" type="button">Auswertung anzeigen ↓</button>
-    <p class="js-only" id="eval-hint" style="margin-top:12px"><small>Noch nicht alle Aussagen beantwortet — fehlende zählen in der Demo als „weiß ich nicht" (1).</small></p>
+    <button class="btn" id="eval-btn-2" type="button">Show assessment ↓</button>
+    <p class="js-only" id="eval-hint" style="margin-top:12px"><small>Not all statements answered yet — in this demo, missing answers count as "don't know" (1).</small></p>
   </div>
 
   </form>
 
   <!-- ===== REPORT ===== -->
   <section id="report">
-    <h2>Ihre Auswertung</h2>
+    <h2>Your assessment</h2>
 
     <p class="no-js-note callout">
-      <strong>Ohne JavaScript</strong> wird hier keine berechnete Auswertung angezeigt. Der Fragebogen oben bleibt vollständig lesbar. Aktivieren Sie JavaScript, um Ihre Gesamt-Ampel, die Heatmap je Dimension, Ihre Hebel und den Roadmap-Teaser zu sehen. Die folgende Methodik gilt unabhängig davon.
+      <strong>Without JavaScript</strong>, no computed assessment is shown here. The questionnaire above remains fully readable. Enable JavaScript to see your overall rating, the heatmap per dimension, your levers, and the roadmap teaser. The methodology below applies regardless.
     </p>
 
     <div class="js-only" id="report-live" hidden>
       <div class="card accent-top">
-        <h3>Gesamt-Einordnung</h3>
+        <h3>Overall rating</h3>
         <div class="gesamt">
           <span class="ampel-dot" id="ges-dot"></span>
           <div class="dial" id="ges-dial" aria-hidden="true">
@@ -500,70 +500,70 @@ img,svg{max-width:100%}
               <circle class="ring-fg" id="ges-ring" cx="66" cy="66" r="56" stroke="var(--gruen)"
                       stroke-dasharray="351.9" stroke-dashoffset="351.9"></circle>
             </svg>
-            <div class="num"><b id="ges-num">–</b><span>von 5</span></div>
+            <div class="num"><b id="ges-num">–</b><span>of 5</span></div>
           </div>
           <div style="flex:1;min-width:220px"><div style="font-family:var(--font-display);font-size:1.5rem;font-weight:600;letter-spacing:-.4px;color:var(--ink)" id="ges-stufe"></div>
           <div id="ges-text" style="color:var(--body);margin-top:4px"></div></div>
         </div>
-        <p style="margin-top:16px"><small>Das ist eine Standortbestimmung, kein Zeugnis. Der Gesamtwert ist bewusst nachrangig — die Heatmap je Dimension ist die eigentliche Aussage, nicht eine einzelne Zahl.</small></p>
+        <p style="margin-top:16px"><small>This is an orientation, not a report card. The overall score is deliberately secondary — the heatmap per dimension is the real message, not a single number.</small></p>
       </div>
 
       <div class="card">
-        <h3>Heatmap über die fünf Dimensionen</h3>
-        <p><small>Schwächste oben — so wird der nächste Hebel sofort sichtbar.</small></p>
+        <h3>Heatmap across the five dimensions</h3>
+        <p><small>Weakest first — so the next lever becomes immediately visible.</small></p>
         <div class="heat" id="heat"></div>
       </div>
 
       <div class="card">
-        <h3>Was schon trägt</h3>
+        <h3>What already holds</h3>
         <div id="staerken"></div>
       </div>
 
       <div class="card">
-        <h3>Ihre Hebel — die kritischen Lücken im Klartext</h3>
+        <h3>Your levers — the critical gaps in plain terms</h3>
         <div id="hebel"></div>
       </div>
 
       <div class="card">
-        <h3>Roadmap-Teaser</h3>
-        <p><small>Bewusst ein Teaser, kein Fahrplan — drei grobe Etappen aus Ihrem Profil. Der eigentliche Fahrplan entsteht im begleiteten Gespräch.</small></p>
+        <h3>Roadmap teaser</h3>
+        <p><small>Deliberately a teaser, not a plan — three rough stages derived from your profile. The actual roadmap emerges in the guided conversation.</small></p>
         <ol class="roadmap" id="roadmap"></ol>
       </div>
 
       <div class="card" id="empfehlung-card">
-        <h3>Ihre empfohlene Vertiefung</h3>
-        <p><small>Zu Ihren schwächsten Dimensionen passen diese Instrumente aus dem AIVC Spectrum — je ein Beispiel-Report zeigt, wie die ausgearbeitete Tiefen-Diagnostik aussieht (<strong>Beispiel-Daten</strong>, nicht Ihr Ergebnis).</small></p>
+        <h3>Your recommended deep dive</h3>
+        <p><small>These instruments from the AIVC Spectrum match your weakest dimensions — each sample report shows what the fully developed in-depth diagnostic looks like (<strong>sample data</strong>, not your results).</small></p>
         <div id="empfehlung"></div>
-        <p style="margin-top:16px;font-size:.95rem"><a href="https://gallery.aivantum.com/" target="_blank" rel="noopener">Alle fünf Instrumente im Überblick — das AIVC&nbsp;Spectrum&nbsp;→</a></p>
+        <p style="margin-top:16px;font-size:.95rem"><a href="https://gallery.aivantum.com/" target="_blank" rel="noopener">All five instruments at a glance — the AIVC&nbsp;Spectrum&nbsp;→</a></p>
       </div>
 
       <div class="card" id="vertiefen">
-        <h3>Tiefer gehen — so sähe eine vertiefte Auswertung aus</h3>
-        <p><small>Fahren Sie über eine Dimension (oder tippen Sie sie an) — Sie sehen beispielhaft, wie eine begleitete Tiefen-Diagnostik dieser Dimension aufschlüsselt. <strong>Nur Platzhalter-Daten zur Veranschaulichung.</strong></small></p>
+        <h3>Going deeper — what an in-depth assessment would look like</h3>
+        <p><small>Hover over a dimension (or tap it) — you will see an example of how a guided in-depth diagnostic breaks that dimension down. <strong>Placeholder data for illustration only.</strong></small></p>
         <div class="vt-dims" id="vt-dims"></div>
         <div class="vt-preview" id="vt-preview"></div>
-        <p class="vt-note">Die vertiefte Diagnostik startet erst nach einem <strong>kostenlosen Erstgespräch</strong> — der ausgearbeitete Report ist dann die eigentliche (kostenpflichtige) Leistung. Der Quick-Check und das Gespräch selbst kosten nichts.</p>
-        <p style="text-align:center;margin-top:16px"><button type="button" class="btn" id="vt-cta">Diese Dimension im Gespräch vertiefen →</button></p>
+        <p class="vt-note">The in-depth diagnostic starts only after a <strong>free initial conversation</strong> — the fully developed report is then the actual (paid) service. The quick check and the conversation itself are free of charge.</p>
+        <p style="text-align:center;margin-top:16px"><button type="button" class="btn" id="vt-cta">Explore this dimension in a conversation →</button></p>
       </div>
     </div>
 
     <!-- Mensch-/Grenze-Anker + CTA: statisch, immer sichtbar -->
     <div class="card">
-      <h3>Was dieser Selbsttest bewusst nicht kann</h3>
-      <p>Diese Grenzen sind keine Schwäche, die man wegoptimiert — sie machen den Test ehrlich:</p>
+      <h3>What this self-check deliberately cannot do</h3>
+      <p>These limits are not a weakness to be optimized away — they are what makes the test honest:</p>
       <ul>
-        <li><strong>Selbst-Einschätzung ist nicht Außen-Sicht.</strong> Der Test misst, wie Ihr Team sich sieht, nicht wie es ist. Die Differenz zwischen gesagter und gelebter Reife deckt erst das begleitete Gespräch auf.</li>
-        <li><strong>Er sagt <em>was</em>, nicht <em>warum</em> und nicht <em>was es kostet</em>.</strong> Welcher Schritt als Nächstes käme, zeigt der Report. Warum gerade das jetzt zählt und was es in Ihrem Alltag kostet, beantwortet nur das Gespräch.</li>
-        <li><strong>Kein Benchmark, kein Mitarbeiter-Assessment.</strong> Der Quick-Check ist Reflexions-Anker, nie Bewertungsinstrument für einzelne Personen.</li>
+        <li><strong>Self-assessment is not an outside view.</strong> The test measures how your team sees itself, not how it is. Only the guided conversation uncovers the gap between stated and lived readiness.</li>
+        <li><strong>It says <em>what</em>, not <em>why</em> and not <em>what it costs</em>.</strong> The report shows which step would come next. Why that matters right now and what it costs in your day-to-day — only the conversation answers that.</li>
+        <li><strong>No benchmark, no employee assessment.</strong> The quick check is a reflection anchor, never an evaluation instrument for individual people.</li>
       </ul>
     </div>
 
     <div class="card inv" id="cta">
-      <h3>Der nächste Schritt: berater-geführte Tiefe</h3>
-      <p>Dieser Check zeigt Ihr Profil. Was er nicht kann: mit Ihrem Team die Lücken durchsprechen, die Selbst-Einschätzung an der gelebten Praxis spiegeln und einordnen, was die nächste Bewegung in Ihrem Kontext wirklich kostet. Genau hier setzt die begleitete Diagnostik an.</p>
-      <p style="margin-top:12px;color:#c9d3ce;font-size:.92rem">Fair und ohne Überraschung: Der Quick-Check und das Erstgespräch sind <strong style="color:#fff">kostenlos</strong>. Erst wenn wir gesprochen haben und Sie eine vertiefte Diagnostik möchten, entsteht daraus ein kleiner Auftrag — der ausgearbeitete Report ist dann die eigentliche Leistung.</p>
+      <h3>The next step: consultant-guided depth</h3>
+      <p>This check shows your profile. What it cannot do: work through the gaps with your team, mirror the self-assessment against lived practice, and assess what the next move would really cost in your context. This is exactly where the guided diagnostic comes in.</p>
+      <p style="margin-top:12px;color:#c9d3ce;font-size:.92rem">Fair and without surprises: the quick check and the initial conversation are <strong style="color:#fff">free of charge</strong>. Only once we have spoken and you decide you want an in-depth diagnostic does a small engagement follow — the fully developed report is then the actual service.</p>
       <p style="margin-top:18px">
-        <a class="btn ghost" href="mailto:jay@aivantum.com?subject=Gespr%C3%A4ch%20zum%20AI-Readiness-Check">Gespräch anfragen</a>
+        <a class="btn ghost" href="mailto:jay@aivantum.com?subject=Conversation%20about%20the%20AI%20Readiness%20Check">Request a conversation</a>
       </p>
     </div>
   </section>
@@ -572,28 +572,28 @@ img,svg{max-width:100%}
 
 <footer>
   <div class="wrap">
-  <p><strong style="color:var(--body-strong)">AI-Readiness-Quick-Check · by Vantum</strong> — eine Standortbestimmung über fünf Dimensionen, kein Zeugnis. Ampel-Schwellen: &lt; 2.5 Frühphase · 2.5–3.5 in Arbeit · ≥ 3.5 bereit. Die Auswertung wird in Ihrem Browser berechnet; Ihre E-Mail und Ihr Ergebnis-Profil werden nur nach Ihrer Einwilligung übermittelt — um Ihnen die Auswertung zu senden und, falls von Ihnen gewünscht, Kontakt aufzunehmen. Details im <a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a>.</p>
+  <p><strong style="color:var(--body-strong)">AI Readiness Quick Check · by Vantum</strong> — an orientation across five dimensions, not a report card. Rating thresholds: &lt; 2.5 early stage · 2.5–3.5 in progress · ≥ 3.5 ready. The assessment is computed in your browser; your email address and your results profile are transmitted only with your consent — to send you the assessment and, if you wish, to get in touch. Details in the <a href="/datenschutz.html">privacy policy</a> · <a href="/impressum.html">legal notice</a>.</p>
   </div>
 </footer>
 
 <!-- ===== Email-Gate ===== -->
 <div class="gate-overlay" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
   <form class="gate" id="gate-form" novalidate>
-    <h3 id="gate-title">Ihre Auswertung ist fertig.</h3>
-    <p class="sub">Geben Sie Ihre E-Mail-Adresse ein — Sie sehen Ihr Ergebnis sofort hier auf der Seite und bekommen es zusätzlich per Mail, damit Sie es in Ruhe durchgehen können.</p>
+    <h3 id="gate-title">Your assessment is ready.</h3>
+    <p class="sub">Enter your email address — you will see your results right here on the page and also receive them by email, so you can go through them at your own pace.</p>
     <p class="err" id="gate-err"></p>
-    <label class="fld" for="gate-email">E-Mail-Adresse</label>
-    <input type="email" id="gate-email" name="email" required autocomplete="email" placeholder="name@firma.de">
+    <label class="fld" for="gate-email">Email address</label>
+    <input type="email" id="gate-email" name="email" required autocomplete="email" placeholder="name@company.com">
     <!-- Newsletter-Opt-in AUSGEBLENDET bis Double-Opt-in technisch steht (Single-Opt-in wäre abmahnträchtig, UWG §7).
          Zum Reaktivieren: hidden-Attribut entfernen — JS (gate-news) und Worker-Feld bleiben funktionsfähig. -->
-    <label class="check" hidden><input type="checkbox" id="gate-news" name="newsletter"><span>Schicken Sie mir den Vantum-Newsletter mit KI-Impulsen für Teams (jederzeit abbestellbar).</span></label>
-    <label class="check"><input type="checkbox" id="gate-tier3" name="tier3"><span>Ich interessiere mich für das begleitete Enablement-Programm (Tier&nbsp;3) — bitte melden Sie sich dazu bei mir.</span></label>
-    <label class="check"><input type="checkbox" id="gate-consent" name="consent" required><span>Ich bin einverstanden, dass meine Angaben zur Erstellung der Auswertung und zur Kontaktaufnahme verarbeitet werden (<a href="datenschutz.html" target="_blank" rel="noopener">Datenschutz</a>).</span></label>
+    <label class="check" hidden><input type="checkbox" id="gate-news" name="newsletter"><span>Send me the Vantum newsletter with AI impulses for teams (unsubscribe at any time).</span></label>
+    <label class="check"><input type="checkbox" id="gate-tier3" name="tier3"><span>I am interested in the guided enablement program (Tier&nbsp;3) — please contact me about it.</span></label>
+    <label class="check"><input type="checkbox" id="gate-consent" name="consent" required><span>I agree that my details will be processed to generate the assessment and to contact me (<a href="/datenschutz.html" target="_blank" rel="noopener">privacy policy</a>).</span></label>
     <div class="actions">
-      <button type="button" class="btn ghost" id="gate-cancel">Zurück</button>
-      <button type="submit" class="btn" id="gate-submit">Auswertung zeigen</button>
+      <button type="button" class="btn ghost" id="gate-cancel">Back</button>
+      <button type="submit" class="btn" id="gate-submit">Show assessment</button>
     </div>
-    <p class="fine">Ihre Antworten werden zur Erstellung Ihrer Auswertung verarbeitet und nicht an Dritte weitergegeben.</p>
+    <p class="fine">Your answers are processed to generate your assessment and are not shared with third parties.</p>
   </form>
 </div>
 
@@ -607,11 +607,11 @@ img,svg{max-width:100%}
   document.head.appendChild(st);
 
   var SCALE = [
-    {v:1, lab:"trifft überhaupt<br>nicht zu"},
-    {v:2, lab:"trifft eher<br>nicht zu"},
-    {v:3, lab:"teils,<br>teils"},
-    {v:4, lab:"trifft<br>eher zu"},
-    {v:5, lab:"trifft<br>voll zu"}
+    {v:1, lab:"does not apply<br>at all"},
+    {v:2, lab:"tends not<br>to apply"},
+    {v:3, lab:"partly<br>applies"},
+    {v:4, lab:"tends<br>to apply"},
+    {v:5, lab:"fully<br>applies"}
   ];
 
   // Skalen-Radios in jeden .scale-Container rendern
@@ -641,7 +641,7 @@ img,svg{max-width:100%}
   }
   function updateProgress(){
     var n = answeredCount();
-    document.getElementById("progress-text").textContent = n + " / " + TOTAL + " beantwortet";
+    document.getElementById("progress-text").textContent = n + " / " + TOTAL + " answered";
     document.getElementById("progress-fill").style.width = (100*n/TOTAL) + "%";
     document.getElementById("eval-btn").disabled = (n === 0);
     var hint = document.getElementById("eval-hint");
@@ -651,20 +651,20 @@ img,svg{max-width:100%}
   // ---- Auswertungs-Logik ----
   var META = {
     d1:{name:"Foundation",
-        luecke:"Es fehlt der gesicherte Boden — eine freigegebene Umgebung, dokumentierte Abläufe oder ein erster regelmäßiger Anwendungsfall sind noch nicht geklärt.",
-        schritt:"Eine sichere, freigegebene Nutzungs-Umgebung schaffen und einen ersten wiederkehrenden Ablauf bewusst auf KI stellen."},
-    d2:{name:"Daten",
-        luecke:"Die Datengrundlage ist verstreut oder in Qualität, Zugriff und Schutzbedarf noch unklar — KI findet kein verlässliches Material vor.",
-        schritt:"Die wichtigsten Datenquellen auffindbar machen, Verantwortlichkeit klären und den Schutzbedarf benennen."},
-    d3:{name:"Menschen",
-        luecke:"Skills, Haltung oder Selbstwirksamkeit tragen den Einsatz noch nicht; teils überwiegt die Sorge, ersetzt zu werden.",
-        schritt:"Raum für angstfreies Ausprobieren öffnen und konkrete Entlastungs-Erlebnisse im Alltag sichtbar machen."},
+        luecke:"The secured ground is missing — an approved environment, documented workflows, or a first regular use case have yet to be established.",
+        schritt:"Create a secure, approved usage environment and deliberately move a first recurring workflow to AI."},
+    d2:{name:"Data",
+        luecke:"The data foundation is scattered, or its quality, access, and protection needs are still unclear — AI finds no reliable material to work with.",
+        schritt:"Make the most important data sources findable, clarify ownership, and name the protection needs."},
+    d3:{name:"People",
+        luecke:"Skills, stance, or self-efficacy do not yet carry adoption; in places, the worry about being replaced prevails.",
+        schritt:"Open up room for experimentation without fear and make concrete moments of relief visible in everyday work."},
     d4:{name:"Governance",
-        luecke:"Es fehlen klare Regeln, eine verantwortliche Rolle und die Auseinandersetzung mit dem EU AI Act (ab 08/2026).",
-        schritt:"Eine einfache KI-Nutzungs-Leitplanke festlegen, eine verantwortliche Rolle benennen und die Transparenzpflichten prüfen."},
-    d5:{name:"Wertschöpfung & Use-Cases",
-        luecke:"Der konkrete Wertbeitrag und die Mensch-Grenze sind noch nicht benannt — wo lohnt KI sich, und wo bleibt der Mensch unersetzlich?",
-        schritt:"Zwei bis drei lohnende Abläufe benennen und bewusst trennen, was KI unterstützt und was in Menschenhand bleibt."}
+        luecke:"Clear rules, an accountable role, and engagement with the EU AI Act (from 08/2026) are missing.",
+        schritt:"Define a simple set of AI usage guardrails, name an accountable role, and review the transparency obligations."},
+    d5:{name:"Value Creation & Use Cases",
+        luecke:"The concrete value contribution and the human boundary have not yet been named — where does AI pay off, and where do people remain irreplaceable?",
+        schritt:"Name two or three worthwhile workflows and deliberately separate what AI supports from what stays in human hands."}
   };
 
   function stufeFor(score){
@@ -673,10 +673,10 @@ img,svg{max-width:100%}
     //  Stufe = AIVC-4-Stufen, narrativ (nie eingefärbt): Foundational <2.0 · Critical <3.0 · Close <4.0 · Etabliert ≥4.0
     var ampel = score < 2.5 ? "rot" : (score < 3.5 ? "gelb" : "gruen");
     var label, kurz;
-    if (score < 2.0)      { label = "Foundational gaps"; kurz = "Fundament fehlt"; }
-    else if (score < 3.0) { label = "Critical gaps";     kurz = "substanzielle Lücken"; }
-    else if (score < 4.0) { label = "Close tweaks";      kurz = "knapp unter Reife"; }
-    else                  { label = "Etablierte Reife";  kurz = "etabliert"; }
+    if (score < 2.0)      { label = "Foundational gaps"; kurz = "foundation missing"; }
+    else if (score < 3.0) { label = "Critical gaps";     kurz = "substantial gaps"; }
+    else if (score < 4.0) { label = "Close tweaks";      kurz = "just short of ready"; }
+    else                  { label = "Established readiness"; kurz = "established"; }
     return {ampel:ampel, label:label, kurz:kurz};
   }
 
@@ -727,9 +727,9 @@ img,svg{max-width:100%}
     var dot = document.getElementById("ges-dot");
     dot.className = "ampel-dot " + ost.ampel;
     renderDial(overall, ost);
-    document.getElementById("ges-stufe").textContent = ost.label + " — Gesamt " + overall.toFixed(1) + " / 5";
+    document.getElementById("ges-stufe").textContent = ost.label + " — Overall " + overall.toFixed(1) + " / 5";
     document.getElementById("ges-text").textContent =
-      "Über alle fünf Dimensionen ergibt sich der Reifegrad „" + ost.label + "“ (" + ost.kurz + "). Entscheidend ist aber, welche Dimension den nächsten Schritt blockiert — siehe Heatmap.";
+      "Across all five dimensions, your readiness level is “" + ost.label + "” (" + ost.kurz + "). What matters most, however, is which dimension is blocking the next step — see the heatmap.";
 
     // Heatmap: schwächste oben
     var sorted = results.slice().sort(function(a,b){
@@ -751,7 +751,7 @@ img,svg{max-width:100%}
     var stark = results.filter(function(r){return r.st.ampel !== "rot";})
                        .sort(function(a,b){return b.score-a.score;});
     if (stark.length){
-      staerken.innerHTML = "<p>Diese Dimensionen tragen schon — hier steht ein Fundament, auf dem die nächsten Schritte aufsetzen:</p>";
+      staerken.innerHTML = "<p>These dimensions already hold — a foundation the next steps can build on:</p>";
       var ul = document.createElement("ul");
       stark.forEach(function(r){
         var li = document.createElement("li");
@@ -760,7 +760,7 @@ img,svg{max-width:100%}
       });
       staerken.appendChild(ul);
     } else {
-      staerken.innerHTML = "<p>Aktuell trägt noch keine Dimension klar. Das ist kein Urteil — es heißt, dass der erste, gesicherte Schritt umso mehr zählt. Genau dabei hilft das begleitete Gespräch.</p>";
+      staerken.innerHTML = "<p>At the moment, no dimension clearly holds yet. That is not a verdict — it means the first, well-secured step counts all the more. This is exactly where the guided conversation helps.</p>";
     }
 
     // Hebel: 2–3 schwächste
@@ -772,7 +772,7 @@ img,svg{max-width:100%}
       var d = document.createElement("div"); d.className = "hebel-card";
       d.innerHTML = "<h4>" + r.name + " — " + r.st.label + " (" + r.score.toFixed(1) + ")</h4>" +
         "<p>" + META[r.id].luecke + "</p>" +
-        "<p><strong>Nächster sinnvoller Schritt:</strong> " + META[r.id].schritt + "</p>";
+        "<p><strong>Next sensible step:</strong> " + META[r.id].schritt + "</p>";
       hebel.appendChild(d);
     });
 
@@ -780,19 +780,19 @@ img,svg{max-width:100%}
     var rm = document.getElementById("roadmap"); rm.innerHTML = "";
     var first = sorted[0], second = sorted[1];
     var steps = [
-      "<strong>Zuerst:</strong> " + META[first.id].schritt + " (Dimension „" + first.name + "“ ist heute der härteste Engpass).",
-      "<strong>Als Enabler vorher klären:</strong> " + META[second.id].schritt + " — ohne diese Grundlage trägt der erste Schritt nicht dauerhaft.",
-      "<strong>Fortschritt erkennbar machen:</strong> einen einfachen, wiederholbaren Indikator je Dimension festlegen, an dem Sie in 4–6 Wochen sehen, ob sich der Boden bewegt — bevor in die Breite skaliert wird."
+      "<strong>First:</strong> " + META[first.id].schritt + " (the “" + first.name + "” dimension is today's hardest bottleneck).",
+      "<strong>Clarify as an enabler beforehand:</strong> " + META[second.id].schritt + " — without this foundation, the first step will not hold in the long run.",
+      "<strong>Make progress visible:</strong> define one simple, repeatable indicator per dimension so that within 4–6 weeks you can see whether the ground is moving — before scaling out."
     ];
     steps.forEach(function(s){ var li = document.createElement("li"); li.innerHTML = s; rm.appendChild(li); });
 
     // Empfohlene Vertiefung: schwächste Dimensionen -> AIVC-Spectrum-Instrumente (Mapping Jay 02.07.)
     var AIVC = {
-      aivch:  { code:"AIVCH",  name:"Organisation — Health Check",        desc:"Reife- und Risiko-Aufnahme auf Organisations- und Führungsebene.", url:"https://gallery.aivantum.com/frozen/aivch.html" },
-      aivco:  { code:"AIVCO",  name:"Abteilung — Operations Potential",   desc:"Automatisierungs-Potenzial und Team-Operations Ihrer Abteilung.",  url:"https://gallery.aivantum.com/frozen/aivco.html" },
-      aivcir: { code:"AIVCIR", name:"IT-Infrastruktur — Infrastructure ROI", desc:"Plattform- und Infrastruktur-Reife als Boden für alles Weitere.", url:"https://gallery.aivantum.com/frozen/aivcir.html" },
-      aivchw: { code:"AIVCHW", name:"Hardware & Arbeitsplatz — Hardware ROI", desc:"Endgeräte- und Compute-Reife direkt am Arbeitsplatz.",          url:"https://gallery.aivantum.com/frozen/aivchw.html" },
-      aivcio: { code:"AIVCIO", name:"Individueller Task — Individual Operations", desc:"Task-Readiness der einzelnen Person am Schreibtisch.",     url:"https://gallery.aivantum.com/frozen/aivcio.html" }
+      aivch:  { code:"AIVCH",  name:"Organization — Health Check",        desc:"Readiness and risk assessment at the organizational and leadership level.", url:"https://gallery.aivantum.com/frozen/aivch.html" },
+      aivco:  { code:"AIVCO",  name:"Department — Operations Potential",   desc:"Automation potential and team operations of your department.",  url:"https://gallery.aivantum.com/frozen/aivco.html" },
+      aivcir: { code:"AIVCIR", name:"IT Infrastructure — Infrastructure ROI", desc:"Platform and infrastructure readiness as the ground everything else stands on.", url:"https://gallery.aivantum.com/frozen/aivcir.html" },
+      aivchw: { code:"AIVCHW", name:"Hardware & Workplace — Hardware ROI", desc:"Device and compute readiness right at the workplace.",          url:"https://gallery.aivantum.com/frozen/aivchw.html" },
+      aivcio: { code:"AIVCIO", name:"Individual Task — Individual Operations", desc:"Task readiness of the individual person at their desk.",     url:"https://gallery.aivantum.com/frozen/aivcio.html" }
     };
     var DIM2AIVC = { d1:["aivcir","aivchw"], d2:["aivcir","aivco"], d3:["aivch","aivcio"], d4:["aivch"], d5:["aivco","aivcio"] };
     var empf = document.getElementById("empfehlung");
@@ -807,8 +807,8 @@ img,svg{max-width:100%}
       picks.forEach(function(p){
         var d = document.createElement("div"); d.className = "hebel-card";
         d.innerHTML = "<h4>" + p.inst.code + " · " + p.inst.name + "</h4>" +
-          "<p>" + p.inst.desc + " <span style=\"color:var(--muted)\">(passt zu Ihrer Dimension „" + p.wegen + "“)</span></p>" +
-          "<p><a href=\"" + p.inst.url + "\" target=\"_blank\" rel=\"noopener\"><strong>Beispiel-Report ansehen →</strong></a></p>";
+          "<p>" + p.inst.desc + " <span style=\"color:var(--muted)\">(matches your “" + p.wegen + "” dimension)</span></p>" +
+          "<p><a href=\"" + p.inst.url + "\" target=\"_blank\" rel=\"noopener\"><strong>View sample report →</strong></a></p>";
         empf.appendChild(d);
       });
     }
@@ -823,7 +823,7 @@ img,svg{max-width:100%}
     var vtDims = document.getElementById("vt-dims");
     var vtPrev = document.getElementById("vt-preview");
     if (!vtDims || !vtPrev) return;
-    var SUBS = ["Ist-Aufnahme je Facette", "Selbst- vs. Fremdbild", "Engpass-Tiefe", "Wirksamkeits-Hebel"];
+    var SUBS = ["Baseline per facet", "Self- vs. outside view", "Bottleneck depth", "Effectiveness levers"];
     function renderPreview(r){
       Array.prototype.forEach.call(vtDims.children, function(b){
         b.classList.toggle("active", b.getAttribute("data-dim") === r.id);
@@ -838,9 +838,9 @@ img,svg{max-width:100%}
                '<span class="val">' + v + '</span></div>';
       }).join("");
       vtPrev.innerHTML =
-        '<span class="vt-sticker">Beispiel · Dummy-Daten</span>' +
-        '<h4>Vertiefte Auswertung · ' + r.name + '</h4>' + bars +
-        '<div class="vt-rec"><strong>Beispielhafter Hebel:</strong> Eine begleitete Diagnostik schlüsselt genau diese Dimension in ihre Facetten auf, spiegelt die Selbst-Einschätzung an der gelebten Praxis und macht den nächsten Schritt in Ihrem Kontext konkret — mit echten Daten statt Platzhaltern.</div>';
+        '<span class="vt-sticker">Sample · dummy data</span>' +
+        '<h4>In-depth assessment · ' + r.name + '</h4>' + bars +
+        '<div class="vt-rec"><strong>Example lever:</strong> A guided diagnostic breaks this exact dimension down into its facets, mirrors the self-assessment against lived practice, and makes the next step concrete in your context — with real data instead of placeholders.</div>';
     }
     vtDims.innerHTML = "";
     sorted.forEach(function(r){
@@ -897,7 +897,8 @@ img,svg{max-width:100%}
       tier3: document.getElementById("gate-tier3").checked,
       answered: answeredCount(), total: TOTAL,
       overall: +overall.toFixed(2), scores: scores, answers: answers,
-      ts: new Date().toISOString(), source: "check.aivantum.com"
+      ts: new Date().toISOString(), source: "check.aivantum.com",
+      lang: "en"
     };
   }
 
@@ -905,25 +906,25 @@ img,svg{max-width:100%}
     e.preventDefault();
     gateErr.classList.remove("show");
     var email = document.getElementById("gate-email").value.trim();
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ showErr("Bitte eine gültige E-Mail-Adresse eingeben."); return; }
-    if (!document.getElementById("gate-consent").checked){ showErr("Bitte die Einwilligung bestätigen, um die Auswertung zu sehen."); return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ showErr("Please enter a valid email address."); return; }
+    if (!document.getElementById("gate-consent").checked){ showErr("Please confirm your consent to view the assessment."); return; }
 
     var btn = document.getElementById("gate-submit");
-    btn.disabled = true; btn.textContent = "Wird gesendet …";
+    btn.disabled = true; btn.textContent = "Sending …";
     var payload = collectPayload(email);
     function reveal(){
       unlocked = true; closeGate();
       reportLive.hidden = false; evaluate();
-      btn.disabled = false; btn.textContent = "Auswertung zeigen";
+      btn.disabled = false; btn.textContent = "Show assessment";
     }
     if (!SUBMIT_ENDPOINT){ // Staging: kein Backend verdrahtet
-      if (window.console) console.log("[check] Staging-Modus (kein Versand). Payload:", payload);
+      if (window.console) console.log("[check] Staging mode (no submission). Payload:", payload);
       reveal(); return;
     }
     fetch(SUBMIT_ENDPOINT, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload) })
       .then(function(r){ if(!r.ok) throw new Error("status " + r.status); return r.json().catch(function(){ return {}; }); })
       .then(function(){ reveal(); })
-      .catch(function(err){ if(window.console) console.warn("[check] Versand fehlgeschlagen:", err); reveal(); });
+      .catch(function(err){ if(window.console) console.warn("[check] Submission failed:", err); reveal(); });
   });
 
   document.getElementById("gate-cancel").addEventListener("click", closeGate);
